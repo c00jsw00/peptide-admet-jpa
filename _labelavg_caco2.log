@@ -1,0 +1,65 @@
+
+=== Caco2  rows=7429  unique_SMILES=7376 X=(7429, 2265) ===
+  split: tr=5197 va=742 te=1490
+  [Caco2] params=613,889 device=cpu input_dim=2265 hidden=(256, 128)
+  [Caco2] epoch   1  train 3.7549  val 1.6904
+  [Caco2] epoch  10  train 0.3434  val 0.2741
+  [Caco2] epoch  20  train 0.3010  val 0.2562
+  [Caco2] epoch  30  train 0.2772  val 0.2458
+  [Caco2] epoch  40  train 0.2691  val 0.2407
+  [Caco2] epoch  50  train 0.2512  val 0.2374
+  [Caco2] epoch  60  train 0.2545  val 0.2355
+  [Caco2] epoch  70  train 0.2504  val 0.2378
+  [Caco2] early stop @ epoch 71 (val 0.2321)
+  A(raw)  seed=42  R2=0.4005  rho=0.7164
+  [Caco2] params=613,889 device=cpu input_dim=2265 hidden=(256, 128)
+  [Caco2] epoch   1  train 3.8770  val 1.9714
+  [Caco2] epoch  10  train 0.3467  val 0.2592
+  [Caco2] epoch  20  train 0.2979  val 0.2434
+  [Caco2] epoch  30  train 0.2796  val 0.2331
+  [Caco2] epoch  40  train 0.2600  val 0.2296
+  [Caco2] epoch  50  train 0.2553  val 0.2303
+  [Caco2] early stop @ epoch 56 (val 0.2232)
+  A(raw)  seed=123  R2=0.3727  rho=0.7149
+  [Caco2] params=613,889 device=cpu input_dim=2265 hidden=(256, 128)
+  [Caco2] epoch   1  train 4.1628  val 2.3342
+  [Caco2] epoch  10  train 0.3540  val 0.2484
+  [Caco2] epoch  20  train 0.2943  val 0.2172
+  [Caco2] epoch  30  train 0.2760  val 0.2101
+  [Caco2] epoch  40  train 0.2675  val 0.2084
+  [Caco2] epoch  50  train 0.2608  val 0.2077
+  [Caco2] epoch  60  train 0.2597  val 0.2039
+  [Caco2] early stop @ epoch 63 (val 0.2028)
+  A(raw)  seed=7  R2=0.3553  rho=0.7399
+  B: unique rows=7376  (from 7429; avg 1.01 replicates/SMILES)
+  B floor handling: 242 floor rows across 242 SMILES; 0 SMILES mixed floor/non-floor; 0 SMILES lifted above floor by the mean
+  [Caco2] params=613,889 device=cpu input_dim=2265 hidden=(256, 128)
+  [Caco2] epoch   1  train 3.7527  val 1.8438
+  [Caco2] epoch  10  train 0.3503  val 0.2591
+  [Caco2] epoch  20  train 0.3057  val 0.2427
+  [Caco2] epoch  30  train 0.2770  val 0.2502
+  [Caco2] epoch  40  train 0.2605  val 0.2314
+  [Caco2] epoch  50  train 0.2482  val 0.2314
+  [Caco2] early stop @ epoch 52 (val 0.2296)
+  B(avg)  seed=42  R2=0.3953  rho=0.7179
+  [Caco2] params=613,889 device=cpu input_dim=2265 hidden=(256, 128)
+  [Caco2] epoch   1  train 3.8858  val 2.1283
+  [Caco2] epoch  10  train 0.3449  val 0.2525
+  [Caco2] epoch  20  train 0.3015  val 0.2343
+  [Caco2] epoch  30  train 0.2767  val 0.2254
+  [Caco2] epoch  40  train 0.2683  val 0.2307
+  [Caco2] epoch  50  train 0.2486  val 0.2176
+  [Caco2] epoch  60  train 0.2422  val 0.2152
+  [Caco2] early stop @ epoch 69 (val 0.2144)
+  B(avg)  seed=123  R2=0.3867  rho=0.7284
+  [Caco2] params=613,889 device=cpu input_dim=2265 hidden=(256, 128)
+  [Caco2] epoch   1  train 4.1967  val 2.3092
+  [Caco2] epoch  10  train 0.3468  val 0.2482
+  [Caco2] epoch  20  train 0.2914  val 0.2277
+  [Caco2] epoch  30  train 0.2720  val 0.2259
+  [Caco2] early stop @ epoch 38 (val 0.2118)
+  B(avg)  seed=7  R2=0.3541  rho=0.7313
+  DELTA R2(B-A) mean over seeds = +0.0025
+
+Wrote analysis/label_avg_results.json
+Done.

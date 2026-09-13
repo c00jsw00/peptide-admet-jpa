@@ -1,0 +1,36 @@
+
+=== Caco2 ===
+  [Caco2] molecular regression n=7429
+  [Caco2] +MoLFormer ibm-research/MoLFormer-XL-both-10pct: input 2265 -> 3033
+  [Caco2] primary split: {'train': 5197, 'val': 742, 'test': 1490}
+  [Caco2] params=810,497 device=cpu input_dim=3033 hidden=(256, 128)
+  [Caco2] epoch   1  train 3.8114  val 1.7459
+  [Caco2] epoch  10  train 0.3300  val 0.2904
+  [Caco2] epoch  20  train 0.2770  val 0.2623
+  [Caco2] epoch  30  train 0.2598  val 0.2490
+  [Caco2] early stop @ epoch 38 (val 0.2428)
+  [Caco2] TEST  r2=0.3909  rmse=0.7848  mae=0.4708  target_units=logPapp
+  [Caco2] saved models_v4\caco2/ (574.5s)
+
+=== PAMPA_MDCK ===
+  [PAMPA_MDCK] molecular regression n=7283
+  [PAMPA_MDCK] +MoLFormer ibm-research/MoLFormer-XL-both-10pct: input 2265 -> 3033
+  [PAMPA_MDCK] primary split: {'train': 5102, 'val': 724, 'test': 1457}
+  [PAMPA_MDCK] params=810,497 device=cpu input_dim=3033 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 3.7908  val 1.7274
+  [PAMPA_MDCK] epoch  10  train 0.3338  val 0.2428
+  [PAMPA_MDCK] epoch  20  train 0.2905  val 0.2313
+  [PAMPA_MDCK] epoch  30  train 0.2591  val 0.2162
+  [PAMPA_MDCK] epoch  40  train 0.2437  val 0.2189
+  [PAMPA_MDCK] early stop @ epoch 49 (val 0.2152)
+  [PAMPA_MDCK] TEST  r2=0.4642  rmse=0.7991  mae=0.45  target_units=logPapp
+  [PAMPA_MDCK] saved models_v4\pampa_mdck/ (495.2s)
+
+======================================================================
+SUMMARY (primary split, measured on holdout)
+======================================================================
+  Caco2        regression molecular R2=0.3909  n=7429
+  PAMPA_MDCK   regression molecular R2=0.4642  n=7283
+
+Total wall time: 1069.8s
+Wrote models_v4\summary.json

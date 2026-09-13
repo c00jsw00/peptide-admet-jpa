@@ -1,0 +1,249 @@
+=== 1. BASELINE MODEL (models_v4) ===
+  pampa_mdck: meta.json MISSING
+  pampa_mdck metrics keys: ['endpoint', 'kind', 'modality', 'model', 'n_params', 'input_dim', 'trunk_hidden', 'regression_loss', 'feature_layout', 'esmc', 'molformer', 'target_aggregation']
+  caco2: meta.json MISSING
+  caco2 metrics keys: ['endpoint', 'kind', 'modality', 'model', 'n_params', 'input_dim', 'trunk_hidden', 'regression_loss', 'feature_layout', 'esmc', 'molformer', 'target_aggregation']
+  half_life: meta.json MISSING
+  half_life metrics keys: ['endpoint', 'kind', 'modality', 'model', 'n_params', 'input_dim', 'trunk_hidden', 'regression_loss', 'feature_layout', 'esmc', 'molformer', 'target_aggregation']
+  hemolysis: meta.json MISSING
+  hemolysis metrics keys: ['endpoint', 'kind', 'modality', 'model', 'n_params', 'input_dim', 'trunk_hidden', 'regression_loss', 'feature_layout', 'esmc', 'molformer', 'target_aggregation']
+=== 2. KPGT CONFIG ===
+  --- all n_heads mentions ---
+   'd_node_feats': 137, 'd_edge_feats': 14, 'd_g_feats': 768, 'd_hpath_ratio': 12, 'n_mol_layers': 12, 
+  --- all layer mentions ---
+   'd_node_feats': 137, 'd_edge_feats': 14, 'd_g_feats': 768, 'd_hpath_ratio': 12, 'n_mol_layers': 12, 
+  --- finetune script config lines ---
+   names, so the state_dict layout matches base.pth exactly (module.-prefix
+   stripped; the 3 pretrain heads dropped; task predictor re-init).
+   official code that base.pth was pretrained under. Reproduced exactly.
+   from src.model_config import config_dict
+   from dgl.data.utils import load_graphs
+   CKPT = r'C:/Users/c00jsw00/_kpgt_weights/pretrained/base/base.pth'
+   cfg = config_dict['base']
+   graphs, label_dict = load_graphs(os.path.join(OUT, 'pampa/pampa_5.pkl'))
+   """Pure-torch replica of light.TripletTransformer (identical param layout)."""
+   def __init__(self, d_feats, d_hpath_ratio, path_length, n_heads,
+   n_ffn_dense_layers, feat_drop=0., attn_drop=0.,
+   self.n_heads = n_heads
+   self.attention_norm = nn.LayerNorm(d_feats)
+   self.node_out_layer = Residual(d_feats, d_feats, n_ffn_dense_layers,
+   H, hd = self.n_heads, triplet_h.size(1) // self.n_heads
+   return self.node_out_layer(triplet_h, agg)
+   """Pure-torch replica of light.LiGhT (identical param layout)."""
+   def __init__(self, d_g_feats, d_hpath_ratio, path_length, n_mol_layers=2,
+   n_heads=4, n_ffn_dense_layers=4, feat_drop=0., attn_drop=0.,
+   self.n_mol_layers = n_mol_layers
+   self.n_heads = n_heads
+   self.path_length = path_length
+   self.d_trip_path = d_g_feats // d_hpath_ratio
+   self.mask_emb = nn.Embedding(1, d_g_feats)
+   self.path_len_emb = nn.Embedding(path_length + 1, d_g_feats)
+   self.virtual_path_emb = nn.Embedding(1, d_g_feats)
+   self.self_loop_emb = nn.Embedding(1, d_g_feats)
+   self.dist_attn_layer = nn.Sequential(
+   nn.Linear(d_g_feats, d_g_feats), activation,
+   nn.Linear(d_g_feats, n_heads))
+   MLP(d_g_feats, self.d_trip_path, 2, activation)
+   for _ in range(self.path_length)])
+   self.path_attn_layer = nn.Sequential(
+   nn.Linear(self.d_trip_path, n_heads))
+   self.mol_T_layers = nn.ModuleList([
+   TripletTransformerGpu(d_g_feats, d_hpath_ratio, path_length, n_heads,
+   n_ffn_dense_layers, feat_drop, attn_drop,
+   for _ in range(n_mol_layers)])
+   # official code -- base.pth was trained with it, so keep it.
+   for i in range(self.path_length):
+   dist_attn = self.dist_attn_layer(dist_h)
+   path_attn = self.path_attn_layer(path_h)
+   for layer in self.mol_T_layers:
+   triplet_h = layer(triplet_h, b['src'], b['dst'], dist_attn, path_attn)
+   """Same param layout as light.LiGhTPredictor (minus the 3 pretrain heads,
+   plus the task predictor). Loads base.pth (module.-stripped) directly."""
+   self.node_emb = AtomEmbedding(cfg['d_node_feats'], cfg['d_g_feats'], 0)
+   self.edge_emb = BondEmbedding(cfg['d_edge_feats'], cfg['d_g_feats'], 0)
+   self.triplet_emb = TripletEmbedding(cfg['d_g_feats'], 512, d_mds)
+   self.mask_emb = nn.Embedding(1, cfg['d_g_feats'])
+   self.model = LiGhTGpu(cfg['d_g_feats'], cfg['d_hpath_ratio'],
+   cfg['path_length'], cfg['n_mol_layers'],
+   cfg['n_heads'], cfg['n_ffn_dense_layers'],
+   nn.Linear(cfg['d_g_feats'] * 3, 256), nn.Dropout(cfg['feat_drop']),
+   def load_base_sd():
+   def build_gpu_model(d_mds, seed=0):
+   sd = load_base_sd()
+   # the 4 task-head params (predictor.0/3) are intentionally absent from
+   # base.pth (it carries the 3 pretrain heads, which were dropped).
+   d_g_feats=cfg['d_g_feats'], d_fp_feats=512, d_md_feats=d_mds,
+   d_hpath_ratio=cfg['d_hpath_ratio'], n_mol_layers=cfg['n_mol_layers'],
+   path_length=cfg['path_length'], n_heads=cfg['n_heads'],
+   n_ffn_dense_layers=cfg['n_ffn_dense_layers'], input_drop=0,
+   sd = load_base_sd()
+   nn.Linear(cfg['d_g_feats'] * 3, 256), nn.Dropout(cfg['feat_drop']),
+   m_gpu = build_gpu_model(d_mds, seed=1234)
+   def lr_at(step, warmup, total, base_lr, min_lr=1e-7):
+   return base_lr * (step + 1) / max(warmup, 1)
+   return min_lr + (base_lr - min_lr) * frac
+   model = build_gpu_model(tr_ds.d_mds, seed=seed)
+   opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=1e-6)
+   for grp in opt.param_groups:
+   torch.nn.utils.clip_grad_norm_(model.parameters(), 5.0)
+   print(f'  R2_all   = {np.mean(arr):.4f} +/- {np.std(arr):.4f}   (LightGBM baseline 0.4642)', flush=True)
+   print(f'  R2_nonfloor = {np.mean(arr_nf):.4f} +/- {np.std(arr_nf):.4f}   (baseline 0.6317)', flush=True)
+=== 3. KPGT CHECKPOINT ===
+  ckpt kpgt_gpu_ckpt_123.pt: 1082.0 MB
+  ckpt kpgt_gpu_ckpt_42.pt: 1082.0 MB
+  ckpt kpgt_gpu_ckpt_7.pt: 1082.0 MB
+  weight pretrained\.DS_Store: 0.0 MB
+  weight pretrained\base\base.pth: 447.1 MB
+  weight __MACOSX\pretrained\._.DS_Store: 0.0 MB
+=== 4. TABPFN ===
+  top keys: ['device', 'split', 'n_train', 'n_val', 'n_test', 'baseline_lightgbm', 'results']
+  device = cuda
+  split = common.split_smiles seed=42
+  n_train = 5102
+  n_val = 724
+  n_test = 1457
+  baseline_lightgbm = {'r2_all': 0.4642, 'r2_nonfloor': 0.6317}
+  results = {'desc': {'r2_all': 0.4962, 'r2_all_std': 0.0016, 'r2_nonfloor': 0.6268, 'spearman': 0.7976, 'mae': 0.4509, 'seeds': {'42': 0.494, '123': 0.4972, '7': 0.4973}}, 'desc+morgan': {'r2_all': 0.4813, 'r2_all_std': 0.003, 'r2_nonfloor': 0.5866, 'spearman': 0.7873, 'mae': 0.4695, 'seeds': {'42': 0.4777, '123': 0.481, '7': 0.4851}}, 'desc+morgan+molf': {'r2_all': 0.482, 'r2_all_std': 0.0068, 'r2_nonfloor': 0.628, 'spearman': 0.7994, 'mae': 0.4538, 'seeds': {'42': 0.4767, '123': 0.4778, '7': 0.4916}}}
+  per_feature (subset): {}
+   """Route 9: TabPFN v2 (foundation tabular model) on PAMPA.
+   (common.split_smiles, seed 42, unique-SMILES 70/10/20). This is the SAME
+   int(0.7n) vs round(0.7n); this repo version corrects that.)
+   - SEEDS: 42/123/7 drive TabPFN's internal feature subsampling / estimator
+   - DEVICE: CUDA (TabPFN runs natively on GPU; unlike KPGT/DGL which has no
+   Feature sets:
+   desc            (217 descriptors)            -- within the v2 500-feat limit
+   desc+morgan     (217+2048, ignore limits)    -- v2 feature-subsamples 2265
+   from tabpfn import TabPFNRegressor
+   from tabpfn.constants import ModelVersion
+   def make(seed, ignore=False):
+   return TabPFNRegressor(
+   model_path=TabPFNRegressor.create_default_for_version(ModelVersion.V2).model_path,
+   n_estimators=4, device=DEVICE, random_state=seed,
+   # canonical leakage-controlled split (seed 42) -- SAME as the v4.2 baseline
+   tr, va, te = common.split_smiles(smiles, seed=common.SEED)
+   f'(common.split_smiles, seed {common.SEED})', flush=True)
+   SEEDS = [42, 123, 7]
+   for seed in SEEDS:
+   m = make(seed, ign)
+   print(f'  {fname} seed={seed}: R2_all={r2s[-1]:.4f} R2_nf={r2nfs[-1]:.4f} '
+   'seeds': {str(s): round(float(r2s[i]), 4) for i, s in enumerate(SEEDS)},
+   print('=== SUMMARY (TabPFN v2, PAMPA, common.split_smiles seed42, 3 seeds) ===')
+   out = 'analysis/route9_tabpfn_results.json'
+   json.dump({'device': str(DEVICE), 'split': f'common.split_smiles seed={common.SEED}',
+=== 5. ROUTE9 KPGT JSON ===
+{
+ "model": "KPGT LiGhT (12-layer triplet transformer, d_g=768, 4 heads), base.pth ICML-2024 pretrained checkpoint, predictor head re-initialized",
+ "implementation": "pure-PyTorch GPU port (DGL 2.2.1 Windows wheel is CPU-only); cross-validated vs official DGL implementation on identical batch in eval mode, max abs output diff 8.3e-07",
+ "protocol": "canonical leakage-controlled split (common.split_smiles, unique-SMILES 70/10/20, seed 42); 7283 rows, 269 floor rows (-10.0000); AdamW lr=1e-4, batch=64, warmup 15, cosine decay, early stopping patience=15; best-val checkpoint reported on test",
+ "seeds": [
+  7,
+  42,
+  123
+ ],
+ "per_seed": {
+  "7": [
+   {
+    "epoch": 1,
+    "val_r2": 0.2303,
+    "val_nf": 0.2985,
+    "test_r2": 0.309,
+    "test_nf": 0.3695,
+    "loss": 1.0161,
+    "epoch_s": 396,
+    "total_s": 396
+   },
+   {
+    "epoch": 2,
+    "val_r2": 0.2046,
+    "val_nf": 0.3888,
+    "test_r2": 0.3036,
+    "test_nf": 0.4254,
+    "loss": 0.5804,
+    "epoch_s": 400,
+    "total_s": 797
+   },
+   {
+    "epoch": 3,
+    "val_r2": 0.3307,
+    "val_nf": 0.4113,
+    "test_r2": 0.4134,
+    "test_nf": 0.4224,
+    "loss": 0.7059,
+    "epoch_s": 394,
+    "total_s": 1192
+   },
+   {
+    "epoch": 4,
+    "val_r2": 0.1603,
+    "val_nf": 0.1644,
+    "test_r2": 0.2768,
+    "test_nf": 0.2317,
+    "loss": 0.551,
+    "epoch_s": 377,
+    "total_s": 1570
+   },
+   {
+    "epoch": 5,
+    "val_r2": 0.3695,
+    "val_nf": 0.4941,
+    "test_r2": 0.4523,
+    "test_nf": 0.5573,
+    "loss": 0.2605,
+    "epoch_s": 388,
+    "total_s": 1958
+   },
+   {
+    "epoch": 6,
+    "val_r2": 0.357,
+    "val_nf": 0.4614,
+    "test_r2": 0.4202,
+    "test_nf": 0.4504,
+    "loss": 0.7787,
+    "epoch_s": 385,
+    "total_s": 2344
+   },
+   {
+    "epoch": 7,
+    "val_r2": 0.3791,
+    "val_nf": 0.4855,
+    "test_r2": 0.4625,
+    "test_nf": 0.5464,
+    "loss": 0.3786,
+    "epoch_s": 380,
+    "total_s": 2725
+   },
+   {
+    "epoch": 8,
+    "val_r2": 0.3847,
+    "val_nf": 0.3815,
+    "test_r2": 0.4836,
+    "test_nf": 0.4622,
+    "loss": 0.4789,
+    "epoch_s": 395,
+    "total_s": 3121
+   },
+   {
+    "epoch": 9,
+    "val_r2": 0.3444,
+    "val_nf": 0.3533,
+    "test_r2": 0.4581,
+    "test_nf": 0.4282,
+    "loss": 0.3652,
+    "epoch_s": 397,
+    "total_s": 3518
+   },
+   {
+    "epoch": 10,
+    "val_r2": 0.3673,
+    "val_nf": 0.2738,
+    "test_r2": 0.4436,
+    "test_nf": 0.3233,
+    "loss": 0.75,
+    "epoch_s": 394,
+    "total_s": 3912
+   },
+   {
+    "epoch": 11,
+    "val_r2": 0.3172,
+    "val_nf": 0.2011,
+    "test_r2":

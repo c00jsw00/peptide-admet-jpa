@@ -1,0 +1,70 @@
+
+=== Hemolysis ===
+  [Hemolysis] sequence  binary     n=8719
+  [Hemolysis] primary split: {'train': 6102, 'val': 872, 'test': 1745}
+  [Hemolysis] params=143,617 device=cpu input_dim=428
+  [Hemolysis] epoch   1  train 0.9596  val 0.9233
+  [Hemolysis] epoch  10  train 0.3119  val 1.2141
+  [Hemolysis] early stop @ epoch 12 (val 0.9130)
+  [Hemolysis] TEST  auc=0.7755  mcc=0.3782  accuracy=0.7009  pos_rate=0.2338
+  [Hemolysis] params=143,617 device=cpu input_dim=428
+  [Hemolysis] epoch   1  train 0.9560  val 0.8606
+  [Hemolysis] epoch  10  train 0.3253  val 1.0055
+  [Hemolysis] early stop @ epoch 14 (val 0.8206)
+  [Hemolysis] RANDOM-COMPARE TEST  auc=0.7746  mcc=0.3604  accuracy=0.7192  pos_rate=0.2155
+  [Hemolysis] saved models_v4\hemolysis/ (28.3s)
+
+=== Half_life ===
+  [Half_life] sequence  regression n=1763
+  [Half_life] primary split: {'train': 1203, 'val': 132, 'test': 428}
+  [Half_life] params=143,617 device=cpu input_dim=428
+  [Half_life] epoch   1  train 9.0964  val 8.4110
+  [Half_life] epoch  10  train 0.5632  val 1.6119
+  [Half_life] epoch  20  train 0.5852  val 1.5578
+  [Half_life] early stop @ epoch 25 (val 1.4701)
+  [Half_life] TEST  r2=0.5883  rmse=1.2502  mae=0.8714  target_units=log10(seconds)
+  [Half_life] params=143,617 device=cpu input_dim=428
+  [Half_life] epoch   1  train 8.7805  val 8.3479
+  [Half_life] epoch  10  train 0.5282  val 0.5748
+  [Half_life] epoch  20  train 0.4918  val 0.5106
+  [Half_life] early stop @ epoch 30 (val 0.5106)
+  [Half_life] RANDOM-COMPARE TEST  r2=0.865  rmse=0.84  mae=0.5856  target_units=log10(seconds)
+  [Half_life] saved models_v4\half_life/ (3.8s)
+
+=== Caco2 ===
+  [Caco2] molecular regression n=7429
+  [Caco2] primary split: {'train': 5197, 'val': 742, 'test': 1490}
+  [Caco2] params=613,889 device=cpu input_dim=2265
+  [Caco2] epoch   1  train 20.4816  val 8.2776
+  [Caco2] epoch  10  train 1.0197  val 0.8141
+  [Caco2] epoch  20  train 0.8958  val 0.8109
+  [Caco2] epoch  30  train 0.8335  val 0.8046
+  [Caco2] epoch  40  train 0.8138  val 0.7795
+  [Caco2] early stop @ epoch 44 (val 0.7705)
+  [Caco2] TEST  r2=0.3861  rmse=0.7879  mae=0.4896  target_units=logPapp
+  [Caco2] saved models_v4\caco2/ (595.6s)
+
+=== PAMPA_MDCK ===
+  [PAMPA_MDCK] molecular regression n=7283
+  [PAMPA_MDCK] primary split: {'train': 5102, 'val': 724, 'test': 1457}
+  [PAMPA_MDCK] params=613,889 device=cpu input_dim=2265
+  [PAMPA_MDCK] epoch   1  train 20.1684  val 8.1360
+  [PAMPA_MDCK] epoch  10  train 1.0641  val 0.8342
+  [PAMPA_MDCK] epoch  20  train 0.9416  val 0.7852
+  [PAMPA_MDCK] epoch  30  train 0.8791  val 0.7304
+  [PAMPA_MDCK] epoch  40  train 0.8129  val 0.7275
+  [PAMPA_MDCK] epoch  50  train 0.8033  val 0.7379
+  [PAMPA_MDCK] early stop @ epoch 53 (val 0.7179)
+  [PAMPA_MDCK] TEST  r2=0.4573  rmse=0.8043  mae=0.507  target_units=logPapp
+  [PAMPA_MDCK] saved models_v4\pampa_mdck/ (512.8s)
+
+======================================================================
+SUMMARY (primary split, measured on holdout)
+======================================================================
+  Hemolysis    binary     sequence  AUC=0.7755  n=8719
+  Half_life    regression sequence  R2=0.5883  n=1763
+  Caco2        regression molecular R2=0.3861  n=7429
+  PAMPA_MDCK   regression molecular R2=0.4573  n=7283
+
+Total wall time: 1140.6s
+Wrote models_v4\summary.json

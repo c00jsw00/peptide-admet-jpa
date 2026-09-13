@@ -1,0 +1,86 @@
+{
+  "pipeline_version": "v4.0-real-data",
+  "dataset": "Chemit797/PepADMET-Dataset (整理/ cleaned tables)",
+  "dataset_root": "C:\\Users\\c00jsw00\\PepADMET-Dataset",
+  "smoke": null,
+  "endpoints": {
+    "Hemolysis": {
+      "endpoint": "Hemolysis",
+      "kind": "binary",
+      "modality": "sequence",
+      "source_file": "整理/hemolysis_unified/hemolysis_unified.csv",
+      "n_raw": 8825,
+      "n_valid_sequence": 8719,
+      "n_with_label": 8825,
+      "label_distribution": {
+        "0": 6721,
+        "1": 1998
+      },
+      "n_final": 8719,
+      "n_dropped": 106
+    },
+    "Half_life": {
+      "endpoint": "Half_life",
+      "kind": "regression",
+      "modality": "sequence",
+      "source_file": "整理/half_life_unified/half_life_final_minimal.csv",
+      "n_raw": 2849,
+      "n_valid_sequence": 1763,
+      "n_with_label": 2849,
+      "label_stats_raw_units": {
+        "n": 1763,
+        "n_null": 0,
+        "min": 0.0008,
+        "median": 1140.0,
+        "max": 124567320.0
+      },
+      "target_transform": "log10",
+      "n_final": 1763,
+      "n_dropped": 1086
+    },
+    "Caco2": {
+      "endpoint": "Caco2",
+      "kind": "regression",
+      "modality": "molecular",
+      "source_file": "整理/caco2_out/caco2_unified.csv",
+      "n_raw": 7429,
+      "n_parseable_smiles": 7429,
+      "n_with_label": 7429,
+      "label_stats_raw_units": {
+        "n": 7429,
+        "n_null": 0,
+        "min": -10.0,
+        "median": -5.74,
+        "max": -3.9
+      },
+      "target_transform": "identity",
+      "n_final": 7429,
+      "n_dropped": 0
+    },
+    "PAMPA_MDCK": {
+      "endpoint": "PAMPA_MDCK",
+      "kind": "regression",
+      "modality": "molecular",
+      "source_file": "整理/permeability_out/permeability_unified.csv",
+      "n_raw": 7737,
+      "n_parseable_smiles": 7737,
+      "n_with_label": 7283,
+      "label_stats_raw_units": {
+        "n": 7283,
+        "n_null": 0,
+        "min": -10.0,
+        "median": -5.68,
+        "max": -3.9
+      },
+      "target_transform": "identity",
+      "n_final": 7283,
+      "n_dropped": 454
+    }
+  },
+  "files": {
+    "Hemolysis": "C:\\Users\\c00jsw00\\openclaw-peptide-admet\\data\\pepadmet_hemolysis.csv",
+    "Half_life": "C:\\Users\\c00jsw00\\openclaw-peptide-admet\\data\\pepadmet_half_life.csv",
+    "Caco2": "C:\\Users\\c00jsw00\\openclaw-peptide-admet\\data\\pepadmet_caco2.csv",
+    "PAMPA_MDCK": "C:\\Users\\c00jsw00\\openclaw-peptide-admet\\data\\pepadmet_pampa_mdck.csv"
+  }
+}

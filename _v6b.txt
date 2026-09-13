@@ -1,0 +1,135 @@
+=== ROUTE4 (Tobit) full ===
+{
+ "route": 4,
+ "name": "Tobit Censored Regression",
+ "script": "tobit_censored.py",
+ "split": "common.split_smiles seed=42, unique-SMILES 70/10/20",
+ "results": {
+  "main_run_seed42": {
+   "censored_counts": {
+    "train": 196,
+    "val": 26,
+    "test": 47
+   },
+   "early_stop": {
+    "best_epoch": 33,
+    "best_val_nll": 0.451,
+    "best_val_R2": 0.3374
+   },
+   "test_R2": 0.403,
+   "test_R2_by_region": {
+    "censored_n": 47,
+    "censored_R2": 0.0,
+    "uncensored_n": 1410,
+    "uncensored_R2": 0.4665
+   },
+   "raw_fx_R2_no_correction": 0.4019,
+   "baseline_v4.2": 0.4642
+  },
+  "multiseed_3seeds": [
+   {
+    "seed": 0,
+    "best_epoch": 20,
+    "sigma": 0.886,
+    "test_R2": 0.3715
+   },
+   {
+    "seed": 1,
+    "best_epoch": 24,
+    "sigma": 0.887,
+    "test_R2": 0.419
+   }
+  ]
+ },
+ "best_overall": {
+  "config": "Tobit seed=1",
+  "r2": 0.419
+ },
+ "conclusion": "Best R2 = 0.4190 (seed 1). BELOW v4.2 baseline (0.4642). Non-floor R2 = 0.4665 vs baseline 0.632. Target 0.70 NOT reached."
+}
+
+=== ROUTE3 keys:  ['route', 'name', 'script', 'split', 'results', 'best_overall', 'conclusion']
+{
+ "route": 3,
+ "name": "LightGBM Ensemble + Two-Stage",
+ "script": "round3_strong_2d.py",
+ "split": "common.split_smiles seed=42, unique-SMILES 70/10/20",
+ "results": {
+  "A_v4.2_MLP_baseline_per_region": {
+   "overall_test_R2": 0.4642,
+   "floor_n": 47,
+   "nonfloor_n": 1410,
+   "note": "reproduces committed baseline"
+  },
+  "B_lightgbm_grid_search_top5": [
+   {
+    "r2_te": 0.4234,
+    "config": "+Morgan r1,r3,r4  lr=0.1 nl=127 mcs=30 ff=1.0  it=25"
+   },
+   {
+    "r2_te": 0.4229,
+    "config": "+Morgan r1,r3,r4  lr=0.1 nl=31 mcs=30 ff=1.0  it=31"
+   },
+   {
+    "r2_te": 0.4183,
+    "config": "+Morgan r1  lr=0.1 nl=127 mcs=30 ff=1.0  it=25"
+   },
+   {
+    "r2_te": 0.4175,
+    "config": "+Morgan r1  lr=0.03 nl=31 mcs=30 ff=0.7  it=129"
+   },
+   {
+    "r2_te": 0.4175,
+    "config": "+Morgan r1,r3,r4  lr=0.05 nl=63 mcs=30 ff=0.7  it=52"
+   }
+  ],
+  "C_best3_5seed_ensemble": [
+   {
+    "config": "+Morgan r1  lr=0.03 nl=31 mcs=30 ff=0.7",
+    "per_seed_mean": 0.4138,
+    "per_seed_sd": 0.003,
+    "ensemble_R2": 0.4176
+   },
+   {
+    "config": "+Morgan r1,r3,r4  lr=0.03 nl=31 mcs=30 ff=0.7",
+    "per_seed_mean": 0.4117,
+    "per_seed_sd": 0.006,
+    "ensemble_R2": 0.4157
+   },
+   {
+    "config": "+Morgan r1  lr=0.03 nl=31 mcs=30 ff=1.0",
+    "per_seed_mean": 0.4132,
+    "per_seed_sd": 0.0028,
+    "ensemble_R2": 0.4165
+   }
+  ],
+  "D_two_stage_floor_classifier": {
+   "v4.2_3033_thr0.5": {
+    "R2_te": 0.4041,
+    "floor_recall": 0.0,
+    "floor_precision": 1.0
+   },
+   "+Morgan_r1_thr0.5": {
+    "R2_te": 0.4096,
+    "floor_recall": 0.0,
+    "floor_precision": 1.0
+   },
+   "+Morgan_r1_r3_r4_thr0.5": {
+    "R2_te": 0.4117,
+    "floor_recall": 0.0,
+    "floor_precision": 1.0
+   },
+   "Morgan_only_r1_r4_thr0.5": {
+    "R2_te": 0.3701,
+    "floor_recall": 0.0,
+    "floor_precision": 1.0
+   },
+   "note": "Floor recall = 0.000 means classifier fails to identify any true floor rows at thr=0.5"
+  }
+ },
+ "best_overall": {
+  "config": "LightGBM +Morgan r1,r3,r4 (single seed)",
+  "r2": 0.4234
+ },
+ "conclusion": "Best single model: LightGBM +Morgan r1,r3,r4 R2=0.4234. Ensemble: 0.4176. Two-stage fails (floor recall=0). ALL BELOW v4.2 baseline (0.4642). Target 0.70 NOT reached."
+}

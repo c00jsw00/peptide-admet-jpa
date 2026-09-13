@@ -1,0 +1,46 @@
+{
+  "version": "v4.2 (real-data + ESMC-600M sequence embeddings + MoLFormer-XL molecular embeddings, Chemit797/PepADMET-Dataset)",
+  "endpoints": {
+    "Hemolysis": {
+      "kind": "binary",
+      "modality": "sequence",
+      "n_samples": 8719,
+      "primary_metric": 0.8348,
+      "primary_metric_name": "AUC",
+      "n_params": 438529,
+      "input_dim": 1580,
+      "elapsed_s": 31.0
+    },
+    "Half_life": {
+      "kind": "regression",
+      "modality": "sequence",
+      "n_samples": 768,
+      "primary_metric": 0.7259,
+      "primary_metric_name": "R2",
+      "n_params": 438529,
+      "input_dim": 1580,
+      "elapsed_s": 2.2
+    },
+    "Caco2": {
+      "kind": "regression",
+      "modality": "molecular",
+      "n_samples": 7429,
+      "primary_metric": 0.3909,
+      "primary_metric_name": "R2",
+      "n_params": 810497,
+      "input_dim": 3033,
+      "elapsed_s": 148.5
+    },
+    "PAMPA_MDCK": {
+      "kind": "regression",
+      "modality": "molecular",
+      "n_samples": 7283,
+      "primary_metric": 0.4642,
+      "primary_metric_name": "R2",
+      "n_params": 810497,
+      "input_dim": 3033,
+      "elapsed_s": 130.1
+    }
+  },
+  "note": "Each endpoint is an independent single-task model on its own modality-appropriate features; there is no composite score because the four datasets are disjoint molecules in two different feature spaces. Primary split = homology-controlled (sequence) or unique-SMILES random (molecular, no sequence available). All metrics measured on holdout. v4.2 adds frozen MoLFormer-XL CLS embeddings to the molecular endpoints and, for Half-life, aggregates exact-duplicate-sequence repeats to their mean (sequence-level target) + Huber loss."
+}

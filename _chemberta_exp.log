@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\c00jsw00\openclaw-peptide-admet\analysis\chemberta_experiment.py", line 148, in <module>
+    main()
+  File "C:\Users\c00jsw00\openclaw-peptide-admet\analysis\chemberta_experiment.py", line 130, in main
+    df = pd.read_csv(common.DATA / csv)
+                     ~~~~~~~~~~~~^~~~~
+TypeError: unsupported operand type(s) for /: 'str' and 'str'

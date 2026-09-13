@@ -1,0 +1,124 @@
+[Caco2] N=7429  train=5197  val=742  test=1490  test floor rows=39
+  no _caco2_feat_cache.npz — building (~5-10 min)...
+    desc 1000/7429 (34s)
+    desc 2000/7429 (80s)
+    desc 3000/7429 (104s)
+    desc 4000/7429 (121s)
+    desc 5000/7429 (159s)
+    desc 6000/7429 (206s)
+    desc 7000/7429 (226s)
+  feature cache built -> _caco2_feat_cache.npz in 243s
+feature cache ready: (7429, 2265) in 244s
+embeddings ready: molformer (7429, 768), chemberta (7429, 384)
+  [Caco2] params=810,497 device=cpu input_dim=3033 hidden=(256, 128)
+  [Caco2] epoch   1  train 3.8101  val 1.7523
+  [Caco2] epoch  10  train 0.3279  val 0.2905
+  [Caco2] epoch  20  train 0.2671  val 0.2526
+  [Caco2] epoch  30  train 0.2491  val 0.2429
+  [Caco2] epoch  40  train 0.2372  val 0.2425
+  [Caco2] epoch  50  train 0.2358  val 0.2411
+  [Caco2] early stop @ epoch 53 (val 0.2396)
+A_mol_molf  seed=42:  test R2=0.4060  non-floor R2=0.5406  RMSE=0.775  MAE=0.4517  (13.9s)
+  [Caco2] params=810,497 device=cpu input_dim=3033 hidden=(256, 128)
+  [Caco2] epoch   1  train 3.8037  val 1.7601
+  [Caco2] epoch  10  train 0.3340  val 0.2691
+  [Caco2] epoch  20  train 0.2813  val 0.2528
+  [Caco2] epoch  30  train 0.2566  val 0.2510
+  [Caco2] epoch  40  train 0.2354  val 0.2438
+  [Caco2] epoch  50  train 0.2222  val 0.2378
+  [Caco2] early stop @ epoch 51 (val 0.2341)
+A_mol_molf  seed=123:  test R2=0.4049  non-floor R2=0.5355  RMSE=0.7757  MAE=0.4528  (17.7s)
+  [Caco2] params=810,497 device=cpu input_dim=3033 hidden=(256, 128)
+  [Caco2] epoch   1  train 3.9878  val 2.0213
+  [Caco2] epoch  10  train 0.3151  val 0.2702
+  [Caco2] epoch  20  train 0.2733  val 0.2573
+  [Caco2] epoch  30  train 0.2485  val 0.2443
+  [Caco2] epoch  40  train 0.2288  val 0.2356
+  [Caco2] early stop @ epoch 50 (val 0.2356)
+A_mol_molf  seed=7:  test R2=0.4191  non-floor R2=0.5540  RMSE=0.7664  MAE=0.4508  (12.7s)
+  [Caco2] params=712,193 device=cpu input_dim=2649 hidden=(256, 128)
+  [Caco2] epoch   1  train 4.1188  val 2.2059
+  [Caco2] epoch  10  train 0.3445  val 0.2819
+  [Caco2] epoch  20  train 0.3082  val 0.2573
+  [Caco2] epoch  30  train 0.2702  val 0.2394
+  [Caco2] epoch  40  train 0.2620  val 0.2428
+  [Caco2] early stop @ epoch 44 (val 0.2353)
+B_mol_chem  seed=42:  test R2=0.3905  non-floor R2=0.5311  RMSE=0.7851  MAE=0.4559  (10.5s)
+  [Caco2] params=712,193 device=cpu input_dim=2649 hidden=(256, 128)
+  [Caco2] epoch   1  train 3.6178  val 1.5342
+  [Caco2] epoch  10  train 0.3431  val 0.2768
+  [Caco2] epoch  20  train 0.3000  val 0.2561
+  [Caco2] epoch  30  train 0.2726  val 0.2507
+  [Caco2] epoch  40  train 0.2550  val 0.2380
+  [Caco2] epoch  50  train 0.2530  val 0.2389
+  [Caco2] epoch  60  train 0.2395  val 0.2339
+  [Caco2] early stop @ epoch 64 (val 0.2316)
+B_mol_chem  seed=123:  test R2=0.3858  non-floor R2=0.5325  RMSE=0.7881  MAE=0.4525  (25.8s)
+  [Caco2] params=712,193 device=cpu input_dim=2649 hidden=(256, 128)
+  [Caco2] epoch   1  train 4.2488  val 2.3262
+  [Caco2] epoch  10  train 0.3764  val 0.3063
+  [Caco2] epoch  20  train 0.3017  val 0.2574
+  [Caco2] epoch  30  train 0.2786  val 0.2539
+  [Caco2] epoch  40  train 0.2580  val 0.2383
+  [Caco2] epoch  50  train 0.2446  val 0.2358
+  [Caco2] epoch  60  train 0.2398  val 0.2378
+  [Caco2] early stop @ epoch 62 (val 0.2350)
+B_mol_chem  seed=7:  test R2=0.3926  non-floor R2=0.5475  RMSE=0.7837  MAE=0.4489  (34.4s)
+  [Caco2] params=908,801 device=cpu input_dim=3417 hidden=(256, 128)
+  [Caco2] epoch   1  train 4.2772  val 2.3659
+  [Caco2] epoch  10  train 0.3400  val 0.2774
+  [Caco2] epoch  20  train 0.2908  val 0.2475
+  [Caco2] epoch  30  train 0.2527  val 0.2413
+  [Caco2] epoch  40  train 0.2436  val 0.2420
+  [Caco2] epoch  50  train 0.2298  val 0.2409
+  [Caco2] early stop @ epoch 57 (val 0.2354)
+C_mol_molf_chem  seed=42:  test R2=0.4178  non-floor R2=0.5347  RMSE=0.7673  MAE=0.4543  (23.6s)
+  [Caco2] params=908,801 device=cpu input_dim=3417 hidden=(256, 128)
+  [Caco2] epoch   1  train 4.0208  val 2.1587
+  [Caco2] epoch  10  train 0.3391  val 0.2831
+  [Caco2] epoch  20  train 0.2786  val 0.2609
+  [Caco2] epoch  30  train 0.2474  val 0.2464
+  [Caco2] epoch  40  train 0.2386  val 0.2396
+  [Caco2] early stop @ epoch 46 (val 0.2373)
+C_mol_molf_chem  seed=123:  test R2=0.4071  non-floor R2=0.5430  RMSE=0.7743  MAE=0.4494  (10.7s)
+  [Caco2] params=908,801 device=cpu input_dim=3417 hidden=(256, 128)
+  [Caco2] epoch   1  train 4.1813  val 2.4002
+  [Caco2] epoch  10  train 0.3387  val 0.2741
+  [Caco2] epoch  20  train 0.2838  val 0.2589
+  [Caco2] epoch  30  train 0.2489  val 0.2392
+  [Caco2] early stop @ epoch 34 (val 0.2376)
+C_mol_molf_chem  seed=7:  test R2=0.3960  non-floor R2=0.5247  RMSE=0.7815  MAE=0.4631  (5.1s)
+  [Caco2] params=132,353 device=cpu input_dim=384 hidden=(256, 128)
+  [Caco2] epoch   1  train 3.6127  val 1.5284
+  [Caco2] epoch  10  train 0.4099  val 0.3340
+  [Caco2] epoch  20  train 0.3702  val 0.3243
+  [Caco2] epoch  30  train 0.3572  val 0.3147
+  [Caco2] epoch  40  train 0.3339  val 0.3055
+  [Caco2] epoch  50  train 0.3270  val 0.3013
+  [Caco2] early stop @ epoch 52 (val 0.2988)
+D_chem  seed=42:  test R2=0.2325  non-floor R2=0.2946  RMSE=0.8809  MAE=0.5402  (4.4s)
+  [Caco2] params=132,353 device=cpu input_dim=384 hidden=(256, 128)
+  [Caco2] epoch   1  train 4.2533  val 2.4410
+  [Caco2] epoch  10  train 0.4306  val 0.3402
+  [Caco2] epoch  20  train 0.3715  val 0.3225
+  [Caco2] epoch  30  train 0.3516  val 0.3130
+  [Caco2] epoch  40  train 0.3432  val 0.3041
+  [Caco2] epoch  50  train 0.3287  val 0.2977
+  [Caco2] epoch  60  train 0.3226  val 0.2940
+  [Caco2] epoch  70  train 0.3132  val 0.2913
+  [Caco2] early stop @ epoch 80 (val 0.2913)
+D_chem  seed=123:  test R2=0.2554  non-floor R2=0.3359  RMSE=0.8677  MAE=0.5289  (7.5s)
+  [Caco2] params=132,353 device=cpu input_dim=384 hidden=(256, 128)
+  [Caco2] epoch   1  train 3.4754  val 1.3958
+  [Caco2] epoch  10  train 0.4063  val 0.3441
+  [Caco2] epoch  20  train 0.3735  val 0.3262
+  [Caco2] epoch  30  train 0.3548  val 0.3153
+  [Caco2] epoch  40  train 0.3341  val 0.3126
+  [Caco2] epoch  50  train 0.3241  val 0.2975
+  [Caco2] epoch  60  train 0.3034  val 0.2906
+  [Caco2] epoch  70  train 0.3005  val 0.2894
+  [Caco2] early stop @ epoch 71 (val 0.2880)
+D_chem  seed=7:  test R2=0.2545  non-floor R2=0.3268  RMSE=0.8682  MAE=0.5315  (6.7s)
+
+Wrote analysis/chemberta_results_caco2.json
+Done.

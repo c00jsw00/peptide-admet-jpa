@@ -1,0 +1,66 @@
+TABPFN per_seed: None
+TABPFN nonfloor: None
+TABPFN r2_all mean: None std: None
+TABPFN feature sets: {}
+KPGT per_seed: {
+ "7": [
+  {
+   "epoch": 1,
+   "val_r2": 0.2303,
+   "val_nf": 0.2985,
+   "test_r2": 0.309,
+   "test_nf": 0.3695,
+   "loss": 1.0161,
+   "epoch_s": 396,
+   "total_s": 396
+  },
+  {
+   "epoch": 2,
+   "val_r2": 0.2046,
+   "val_nf": 0.3888,
+   "test_r2": 0.3036,
+   "test_nf": 0.4254,
+   "loss": 0.5804,
+   "epoch_s": 400,
+   "total_s": 797
+  },
+  {
+   "epoch": 3,
+   "val_r2": 0.3307,
+   "val_nf": 0.4113,
+   "test_r2": 0.4134,
+   "test_nf": 0.4224,
+   "loss": 0.7059,
+   "epoch_s": 394,
+   "total_s": 1192
+  },
+  {
+   "epoch": 4,
+   "val_r2": 0.1603,
+   "val_nf": 0.1644,
+   "test_r2": 0.2768,
+   "test_nf": 0.2317,
+   "loss": 0.551,
+   "epoch_s": 377,
+   "total_s": 1570
+  },
+  {
+   "epoch": 5,
+   "val_r2": 0.3695,
+   "val_nf": 0.4941,
+   "test_r2": 0.4523,
+   "test_nf": 0.5573,
+   "loss": 0.2605,
+   "epoch_s": 388,
+   "total_s": 1958
+  },
+  {
+   "epoch": 6,
+   "val_r2": 0.357,
+   "val_nf": 0.4614,
+KPGT best: {"7": {"best_epoch": 13, "best_val_r2": 0.408, "r2_all": 0.5139281839894189, "r2_nf": 0.5034992848375061, "spearman": 0.8040519035220387, "mae": 0.4776812748460632, "rmse": 0.7611238076900776}, "42": {"best_epoch": 16, "best_val_r2": 0.4059, "r2_all": 0.5191117377732891, "r2_nf": 0.5632751581577435, "spearman": 0.8257253573211019, "mae": 0.4424199917255891, "rmse": 0.7570545519394902}, "123": {"be
+R1 step4 5seeds: {'seeds': [42, 123, 456, 789, 1024], 'r2_values': [0.444, 0.4483, 0.4476, 0.4416, 0.4466], 'mean': 0.4456, 'std': 0.0025, 'min': 0.4416, 'max': 0.4483, 'config': 'ALL features (3033), identity target, (256,128), Huber'}
+R2 C_ensemble_5seed: {'r2_rank': 0.6906, 'r2_logpapp': 0.4469}
+R2 best_honest: {'config': '5-seed ensemble FULL 3033 (256,128), rank-gauss, Huber', 'r2_logpapp': 0.4469}
+
+=== search logs/README for non-floor route1/2/3 values (0.618/0.615/0.592) ===

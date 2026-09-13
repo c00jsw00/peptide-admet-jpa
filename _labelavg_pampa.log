@@ -1,0 +1,58 @@
+
+=== PAMPA_MDCK  rows=7283  unique_SMILES=7177 X=(7283, 3033) ===
+  split: tr=5102 va=724 te=1457
+  [PAMPA_MDCK] params=810,497 device=cpu input_dim=3033 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 3.7908  val 1.7274
+  [PAMPA_MDCK] epoch  10  train 0.3338  val 0.2428
+  [PAMPA_MDCK] epoch  20  train 0.2905  val 0.2313
+  [PAMPA_MDCK] epoch  30  train 0.2591  val 0.2162
+  [PAMPA_MDCK] epoch  40  train 0.2437  val 0.2189
+  [PAMPA_MDCK] early stop @ epoch 49 (val 0.2152)
+  A(raw)  seed=42  R2=0.4642  rho=0.7932
+  [PAMPA_MDCK] params=810,497 device=cpu input_dim=3033 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 3.8293  val 1.8599
+  [PAMPA_MDCK] epoch  10  train 0.3354  val 0.2672
+  [PAMPA_MDCK] epoch  20  train 0.2849  val 0.2300
+  [PAMPA_MDCK] epoch  30  train 0.2548  val 0.2229
+  [PAMPA_MDCK] epoch  40  train 0.2459  val 0.2186
+  [PAMPA_MDCK] epoch  50  train 0.2305  val 0.2207
+  [PAMPA_MDCK] early stop @ epoch 55 (val 0.2168)
+  A(raw)  seed=123  R2=0.4759  rho=0.7846
+  [PAMPA_MDCK] params=810,497 device=cpu input_dim=3033 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 3.9679  val 2.0494
+  [PAMPA_MDCK] epoch  10  train 0.3342  val 0.2311
+  [PAMPA_MDCK] epoch  20  train 0.2783  val 0.2190
+  [PAMPA_MDCK] epoch  30  train 0.2648  val 0.2127
+  [PAMPA_MDCK] early stop @ epoch 35 (val 0.2087)
+  A(raw)  seed=7  R2=0.4015  rho=0.7497
+  B: unique rows=7177  (from 7283; avg 1.01 replicates/SMILES)
+  B floor handling: 269 floor rows across 269 SMILES; 0 SMILES mixed floor/non-floor; 0 SMILES lifted above floor by the mean
+  [PAMPA_MDCK] params=810,497 device=cpu input_dim=3033 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 3.8100  val 1.7241
+  [PAMPA_MDCK] epoch  10  train 0.3258  val 0.2469
+  [PAMPA_MDCK] epoch  20  train 0.2993  val 0.2353
+  [PAMPA_MDCK] epoch  30  train 0.2636  val 0.2261
+  [PAMPA_MDCK] early stop @ epoch 35 (val 0.2162)
+  B(avg)  seed=42  R2=0.4272  rho=0.778
+  [PAMPA_MDCK] params=810,497 device=cpu input_dim=3033 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 3.8492  val 1.8213
+  [PAMPA_MDCK] epoch  10  train 0.3295  val 0.2535
+  [PAMPA_MDCK] epoch  20  train 0.2908  val 0.2428
+  [PAMPA_MDCK] epoch  30  train 0.2670  val 0.2274
+  [PAMPA_MDCK] epoch  40  train 0.2482  val 0.2243
+  [PAMPA_MDCK] epoch  50  train 0.2374  val 0.2215
+  [PAMPA_MDCK] epoch  60  train 0.2309  val 0.2234
+  [PAMPA_MDCK] early stop @ epoch 62 (val 0.2207)
+  B(avg)  seed=123  R2=0.4669  rho=0.7828
+  [PAMPA_MDCK] params=810,497 device=cpu input_dim=3033 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 3.9929  val 2.0390
+  [PAMPA_MDCK] epoch  10  train 0.3358  val 0.2584
+  [PAMPA_MDCK] epoch  20  train 0.2931  val 0.2170
+  [PAMPA_MDCK] epoch  30  train 0.2622  val 0.2289
+  [PAMPA_MDCK] epoch  40  train 0.2463  val 0.2099
+  [PAMPA_MDCK] early stop @ epoch 43 (val 0.2079)
+  B(avg)  seed=7  R2=0.4019  rho=0.7482
+  DELTA R2(B-A) mean over seeds = -0.0152
+
+Wrote analysis/label_avg_results.json
+Done.

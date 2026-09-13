@@ -1,0 +1,120 @@
+=== GBM / mordred usage in analysis & repo ===
+files matching: C:\Users\c00jsw00\openclaw-peptide-admet\analysis/floor_predictability.py
+C:\Users\c00jsw00\openclaw-peptide-admet\analysis/README.md
+C:\Users\c00jsw00\openclaw-peptide-admet\analysis/round3_strong_2d.py
+C:\Users\c00jsw00\openclaw-peptide-admet\analysis/route3_output.log
+C:\Users\c00jsw00\openclaw-peptide-admet\analysis/route3_results.json
+C:\Users\c00jsw00\openclaw-peptide-admet\analysis/route9_tabpfn.py
+C:\Users\c00jsw00\openclaw-peptide-admet\analysis/route9_tabpfn_kpgt.md
+C:\Users\c00jsw00\openclaw-peptide-admet\analysis/route9_tabpfn_results.json
+C:\Users\c00jsw00\openclaw-peptide-admet\analysis/soft_blend.py
+mordred lines: (none)
+gbm lines: C:\Users\c00jsw00\openclaw-peptide-admet\analysis/floor_predictability.py:17:classifier (LightGBM, tuned) and the two-stage R2 it unlocks.
+C:\Users\c00jsw00\openclaw-peptide-admet\analysis/floor_predictability.py:31:import lightgbm as lgb
+C:\Users\c00jsw00\openclaw-peptide-admet\analysis/floor_predi
+
+=== Route 8 (label_avg) FULL ===
+{
+ "pampa": {
+  "endpoint": "PAMPA_MDCK",
+  "rows": 7283,
+  "unique_smiles": 7177,
+  "avg_replicates": 1.015,
+  "floor_rows": 269,
+  "floor_smiles": 269,
+  "mixed_floor_smiles": 0,
+  "floor_lifted_smiles": 0,
+  "A_raw": {
+   "42": {
+    "r2_all": 0.4642,
+    "spearman_all": 0.7932
+   },
+   "123": {
+    "r2_all": 0.4759,
+    "spearman_all": 0.7846
+   },
+   "7": {
+    "r2_all": 0.4015,
+    "spearman_all": 0.7497
+   }
+  },
+  "B_label_avg": {
+   "42": {
+    "r2_all": 0.4272,
+    "spearman_all": 0.778
+   },
+   "123": {
+    "r2_all": 0.4669,
+    "spearman_all": 0.7828
+   },
+   "7": {
+    "r2_all": 0.4019,
+    "spearman_all": 0.7482
+   }
+  },
+  "delta_r2_all_mean": -0.0152,
+  "delta_r2_per_seed": [
+   -0.037,
+   -0.009,
+   0.0004
+  ]
+ },
+ "caco2": {
+  "endpoint": "Caco2",
+  "rows": 7429,
+  "unique_smiles": 7376,
+  "avg_replicates": 1.007,
+  "floor_rows": 242,
+  "floor_smiles": 242,
+  "mixed_floor_smiles": 0,
+  "floor_lifted_smiles": 0,
+  "A_raw": {
+   "42": {
+    "r2_all": 0.4005,
+    "spearman_all": 0.7164
+   },
+   "123": {
+    "r2_all": 0.3727,
+    "spearman_all": 0.7149
+   },
+   "7": {
+    "r2_all": 0.3553,
+    "spearman_all": 0.7399
+   }
+  },
+  "B_label_avg": {
+   "42": {
+    "r2_all": 0.3953,
+    "spearman_all": 0.7179
+   },
+   "123": {
+    "r2_all": 0.3867,
+    "spearman_all": 0.7284
+   },
+   "7": {
+    "r2_all": 0.3541,
+    "spearman_all": 0.7313
+   }
+  },
+  "delta_r2_all_mean": 0.0025,
+  "delta_r2_per_seed": [
+   -0.0052,
+   0.014,
+   -0.0012
+  ]
+ },
+ "note": "A = raw rows (committed v4.2 protocol); B = one row per unique SMILES, y = arithmetic mean of replicate labels (pepADMET Methods step 1). Same features, same leakage-controlled unique-SMILES 70/10/20 split, same MLP+Huber trainer. A seed=42 reproduces committed baseline exactly."
+}
+
+=== KPGT 2206.03364 authors ===
+title: KPGT: Knowledge-Guided Pre-training of Graph Transformer for Molecular Property Prediction
+authors: ['Li', 'Zhao', 'Zeng']
+issued: [[2022]]
+
+=== Caco-2 sigma & SD (clean) ===
+col=Caco2 n=7429 floor=242 (3.3%)  SD_total=1.0474 SD_nonfloor=0.7477  ratio_sd=0.7139  sigma2/V=0.5096
+
+=== PAMPA split + censored ===
+col=PAMPA_MDCK total_rows=7283 unique=648  censored=269 (3.69%)
+
+=== PeptiVerse overlap (from JSON, no parquet) ===

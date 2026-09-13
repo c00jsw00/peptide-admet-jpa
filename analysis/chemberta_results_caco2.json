@@ -1,0 +1,137 @@
+{
+  "endpoint": "Caco2",
+  "seeds": [
+    42,
+    123,
+    7
+  ],
+  "configs": [
+    "A_mol_molf",
+    "B_mol_chem",
+    "C_mol_molf_chem",
+    "D_chem"
+  ],
+  "run": "2026-08-28 02:15:44",
+  "results": [
+    {
+      "config": "A_mol_molf",
+      "seed": 42,
+      "input_dim": 3033,
+      "test_r2": 0.406,
+      "test_r2_nonfloor": 0.5406,
+      "rmse": 0.775,
+      "mae": 0.4517,
+      "seconds": 13.9
+    },
+    {
+      "config": "A_mol_molf",
+      "seed": 123,
+      "input_dim": 3033,
+      "test_r2": 0.4049,
+      "test_r2_nonfloor": 0.5355,
+      "rmse": 0.7757,
+      "mae": 0.4528,
+      "seconds": 17.7
+    },
+    {
+      "config": "A_mol_molf",
+      "seed": 7,
+      "input_dim": 3033,
+      "test_r2": 0.4191,
+      "test_r2_nonfloor": 0.554,
+      "rmse": 0.7664,
+      "mae": 0.4508,
+      "seconds": 12.7
+    },
+    {
+      "config": "B_mol_chem",
+      "seed": 42,
+      "input_dim": 2649,
+      "test_r2": 0.3905,
+      "test_r2_nonfloor": 0.5311,
+      "rmse": 0.7851,
+      "mae": 0.4559,
+      "seconds": 10.5
+    },
+    {
+      "config": "B_mol_chem",
+      "seed": 123,
+      "input_dim": 2649,
+      "test_r2": 0.3858,
+      "test_r2_nonfloor": 0.5325,
+      "rmse": 0.7881,
+      "mae": 0.4525,
+      "seconds": 25.8
+    },
+    {
+      "config": "B_mol_chem",
+      "seed": 7,
+      "input_dim": 2649,
+      "test_r2": 0.3926,
+      "test_r2_nonfloor": 0.5475,
+      "rmse": 0.7837,
+      "mae": 0.4489,
+      "seconds": 34.4
+    },
+    {
+      "config": "C_mol_molf_chem",
+      "seed": 42,
+      "input_dim": 3417,
+      "test_r2": 0.4178,
+      "test_r2_nonfloor": 0.5347,
+      "rmse": 0.7673,
+      "mae": 0.4543,
+      "seconds": 23.6
+    },
+    {
+      "config": "C_mol_molf_chem",
+      "seed": 123,
+      "input_dim": 3417,
+      "test_r2": 0.4071,
+      "test_r2_nonfloor": 0.543,
+      "rmse": 0.7743,
+      "mae": 0.4494,
+      "seconds": 10.7
+    },
+    {
+      "config": "C_mol_molf_chem",
+      "seed": 7,
+      "input_dim": 3417,
+      "test_r2": 0.396,
+      "test_r2_nonfloor": 0.5247,
+      "rmse": 0.7815,
+      "mae": 0.4631,
+      "seconds": 5.1
+    },
+    {
+      "config": "D_chem",
+      "seed": 42,
+      "input_dim": 384,
+      "test_r2": 0.2325,
+      "test_r2_nonfloor": 0.2946,
+      "rmse": 0.8809,
+      "mae": 0.5402,
+      "seconds": 4.4
+    },
+    {
+      "config": "D_chem",
+      "seed": 123,
+      "input_dim": 384,
+      "test_r2": 0.2554,
+      "test_r2_nonfloor": 0.3359,
+      "rmse": 0.8677,
+      "mae": 0.5289,
+      "seconds": 7.5
+    },
+    {
+      "config": "D_chem",
+      "seed": 7,
+      "input_dim": 384,
+      "test_r2": 0.2545,
+      "test_r2_nonfloor": 0.3268,
+      "rmse": 0.8682,
+      "mae": 0.5315,
+      "seconds": 6.7
+    }
+  ]
+}

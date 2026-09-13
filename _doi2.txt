@@ -1,0 +1,13 @@
+=== RETRY DOIs ===
+[4] MoLFormer JCIM 2c00147: FAIL 10.1021/acs.jcim.2c00147 -> Expecting value: line 1 column 1 (char 0)
+[4b] MoLFormer alt 2c00090: FAIL 10.1021/acs.jcim.2c00090 -> Expecting value: line 1 column 1 (char 0)
+[11] Mordred 10.1186/s13321-020-00455-y: FAIL 10.1186/s13321-020-00455-y -> Expecting value: line 1 column 1 (char 0)
+[11b] Mordred alt 10.1186/s13321-020-00455-y: FAIL 10.1186/s13321-020-00455-y -> Expecting value: line 1 column 1 (char 0)
+--- MOLFORMER crossref ---
+   10.1021/scimeetings.1c00230 | Large-scale distributed pre-training of transformers for dat | ?
+   10.36227/techrxiv.13025039.v3 | Self-Supervised Pre-Training of Transformers for Satellite I | ?
+   10.36227/techrxiv.13025039.v2 | Self-Supervised Pre-Training of Transformers for Satellite I | ?
+--- MORDRED crossref ---
+   10.1186/s13321-018-0258-y | Mordred: a molecular descriptor calculator | Journal of Cheminformatics
+   10.1088/1742-6596/2596/1/012020 | Prediction of organic molecular optical absorption energy ba | Journal of Physics: Conference Series
+   10.7717/peerj-cs.601/fig-17 | Figure 17: A GrimoireLab system including Mordred and Arthur | ?

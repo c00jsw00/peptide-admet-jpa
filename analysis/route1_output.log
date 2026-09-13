@@ -1,0 +1,85 @@
+Device: cuda
+PAMPA: N=7283, unique SMILES=7177
+y range: [-10.000, -3.900], mean=-5.887, std=1.123
+Split: train=5102, val=724, test=1457
+
+=== Extracting features ===
+  RDKit descriptors: 217
+  done (246.7s)
+  Morgan r=1: (7283, 2048) (1.8s)
+  Morgan r=2: (7283, 2048) (1.9s)
+  Morgan r=3: (7283, 2048) (2.1s)
+  Loading MoLFormer cache...
+  MoLFormer: (7283, 768)
+  Feature extraction total: 252.6s
+
+  Target stats:
+    identity:  mean=-5.887 std=1.123
+    rankgauss: mean=0.003 std=0.989
+
+======================================================================
+STEP 1: Signal localization (same split, same arch (256,128), seed 42)
+======================================================================
+  RDKit 217 desc only                                 R²=0.2950  (2.3s)
+  Morgan r=2 only (2048)                              R²=0.4419  (2.4s)
+  MoLFormer 768 only                                  R²=0.4009  (1.5s)
+  RDKit + Morgan r=2 (2265) [v4.2 baseline]           R²=0.4539  (2.1s)
+  RDKit + MoLFormer (217+768=985)                     R²=0.4243  (1.3s)
+  Morgan r=2 + MoLFormer (2048+768=2816)              R²=0.4406  (1.8s)
+  ALL: RDKit + Morgan r=2 + MoLFormer (3033)          R²=0.4440  (2.0s)
+
+======================================================================
+STEP 2: Feature upgrades
+======================================================================
+  RDKit + Morgan r1+r2+r3 (217+6144=6361)             R²=0.4463  (2.1s)
+  RDKit + Morgan r1+r2 (217+4096=4313)                R²=0.4623  (2.6s)
+  ALL + Morgan r1+r3 (3033+4096=7129)                 R²=0.4624  (1.8s)
+
+  Target transforms (ALL features, 3033-dim):
+    identity              R²=0.4440  (2.0s)
+    rankgauss             R²=0.6603  (1.2s)
+
+======================================================================
+STEP 3: Model upgrades (ALL features, 3033-dim, identity target)
+======================================================================
+  (256,128) [baseline]            R²=0.4440  (1.7s)
+  (512,256,128)                   R²=0.4517  (1.9s)
+  (512,256,128,64)                R²=0.4491  (1.7s)
+  (1024,512,256)                  R²=0.4572  (1.7s)
+
+======================================================================
+STEP 4: Multi-seed stability (best config, 5 seeds)
+======================================================================
+  Best so far: rankgauss target / rankgauss -> R²=0.6603
+    seed    42  R²=0.4440  (1.8s)
+    seed   123  R²=0.4483  (1.4s)
+    seed   456  R²=0.4476  (1.6s)
+    seed   789  R²=0.4416  (1.8s)
+    seed  1024  R²=0.4466  (1.4s)
+  Mean R² = 0.4456 ± 0.0025  (min=0.4416, max=0.4483)
+
+======================================================================
+SUMMARY — all R² values (test split, same random 70/10/20 seed 42)
+======================================================================
+  v4.2 committed: R²=0.4642 (RDKit+Morgan r2+MoLFormer, (256,128), Huber)
+
+  R²=0.6603  rankgauss target / rankgauss
+  R²=0.4624  ALL + Morgan r1+r3 (3033+4096=7129)
+  R²=0.4623  RDKit + Morgan r1+r2 (217+4096=4313)
+  R²=0.4572  arch (1024,512,256)
+  R²=0.4539  RDKit + Morgan r=2 (2265) [v4.2 baseline]
+  R²=0.4517  arch (512,256,128)
+  R²=0.4491  arch (512,256,128,64)
+  R²=0.4463  RDKit + Morgan r1+r2+r3 (217+6144=6361)
+  R²=0.4440  ALL: RDKit + Morgan r=2 + MoLFormer (3033)
+  R²=0.4440  rankgauss target / identity
+  R²=0.4440  arch (256,128) [baseline]
+  R²=0.4419  Morgan r=2 only (2048)
+  R²=0.4406  Morgan r=2 + MoLFormer (2048+768=2816)
+  R²=0.4243  RDKit + MoLFormer (217+768=985)
+  R²=0.4009  MoLFormer 768 only
+  R²=0.2950  RDKit 217 desc only
+
+  Ceiling (from noise analysis): R²_max ≈ 0.97
+  Target: R² ≥ 0.70
+  Achieved: R² ≥ 0.70? NO

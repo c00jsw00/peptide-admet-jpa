@@ -1,0 +1,48 @@
+train=5102 val=724 test=1457  floor: 196/26/47
+features done (10s), dim=9177
+baseline: val R2=0.3636  test R2=0.4642
+floor classifier: AUC_val=0.8251  AUC_te=0.8557
+  P_floor: test floor rows median=0.053 (min 0.019), non-floor median=0.017 (max 0.527)
+
+=== beta sweep (selected on VAL) ===
+  beta    R2_val   R2_te(peek)
+  0.00   0.3636    0.4642    
+  0.10   0.3660    0.4655      <-- val-best
+  0.20   0.3678    0.4663      <-- val-best
+  0.30   0.3691    0.4665      <-- val-best
+  0.50   0.3703    0.4651      <-- val-best
+  0.70   0.3695    0.4613    
+  1.00   0.3646    0.4513    
+  1.50   0.3465    0.4229    
+  2.00   0.3162    0.3798    
+  3.00   0.2184    0.2497    
+  5.00   -0.1252   -0.1864   
+
+VAL-SELECTED beta = 0.50  (val R2 = 0.3703)
+HONEST test R2 at selected beta = 0.4651   (baseline 0.4642)
+
+selected-beta by region (test):
+  floor     n=  47  R2=0.0000  pred median=-6.619
+  non-floor n=1410  R2=0.5930  pred median=-5.764
+
+  calibration (test, quantile bins):  frac_positive vs mean_P
+    0.00  0.01
+    0.00  0.01
+    0.01  0.02
+    0.03  0.03
+    0.11  0.09
+
+=== physchem descriptor separability (train, floor vs non-floor) ===
+  9-descriptor floor classifier AUC_val = 0.7623
+  median: floor vs non-floor (train)
+    MW        floor=    806.04   non-floor=    842.09
+    LogP      floor=      2.65   non-floor=      2.75
+    TPSA      floor=    168.54   non-floor=    177.33
+    HBA       floor=      7.00   non-floor=      7.00
+    HBD       floor=      4.00   non-floor=      4.00
+    RotBonds  floor=      8.00   non-floor=     10.00
+    frSp3     floor=      0.58   non-floor=      0.68
+    MR        floor=    222.43   non-floor=    232.40
+    QED       floor=      0.31   non-floor=      0.27
+
+Done.

@@ -1,0 +1,48 @@
+{
+  "route": 4,
+  "name": "Tobit Censored Regression",
+  "script": "tobit_censored.py",
+  "split": "common.split_smiles seed=42, unique-SMILES 70/10/20",
+  "results": {
+    "main_run_seed42": {
+      "censored_counts": {
+        "train": 196,
+        "val": 26,
+        "test": 47
+      },
+      "early_stop": {
+        "best_epoch": 33,
+        "best_val_nll": 0.451,
+        "best_val_R2": 0.3374
+      },
+      "test_R2": 0.403,
+      "test_R2_by_region": {
+        "censored_n": 47,
+        "censored_R2": 0.0,
+        "uncensored_n": 1410,
+        "uncensored_R2": 0.4665
+      },
+      "raw_fx_R2_no_correction": 0.4019,
+      "baseline_v4.2": 0.4642
+    },
+    "multiseed_3seeds": [
+      {
+        "seed": 0,
+        "best_epoch": 20,
+        "sigma": 0.886,
+        "test_R2": 0.3715
+      },
+      {
+        "seed": 1,
+        "best_epoch": 24,
+        "sigma": 0.887,
+        "test_R2": 0.419
+      }
+    ]
+  },
+  "best_overall": {
+    "config": "Tobit seed=1",
+    "r2": 0.419
+  },
+  "conclusion": "Best R2 = 0.4190 (seed 1). BELOW v4.2 baseline (0.4642). Non-floor R2 = 0.4665 vs baseline 0.632. Target 0.70 NOT reached."
+}

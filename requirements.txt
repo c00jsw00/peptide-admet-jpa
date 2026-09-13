@@ -1,0 +1,29 @@
+# Peptide ADMET Prediction Model Dependencies
+
+# Core dependencies
+torch>=2.0.0
+scikit-learn>=1.3.0
+pandas>=2.0.0
+numpy>=1.24.0
+joblib>=1.2.0
+
+# Optional dependencies
+matplotlib>=3.7.0
+seaborn>=0.12.0
+tqdm>=4.65.0
+
+# For data processing
+rdkit>=2023.0.0
+
+# For v4.1 frozen ESMC-600M sequence embeddings (ad-hoc fallback; batch
+# embeddings are committed under data/esmc/)
+# NOTE: the ESMC package itself is NOT on PyPI — install it in the dedicated
+# Python >= 3.12 env (`.venv-esmc`) via `pip install git+https://github.com/Biohub/esm.git`.
+transformers>=4.40.0
+
+# For v4.2 frozen MoLFormer-XL molecular embeddings (ad-hoc fallback; batch
+# embeddings are committed under data/molformer/)
+sentencepiece>=0.2.0
+
+# For advanced features
+xgboost>=1.7.0

@@ -1,0 +1,26 @@
+train=5102 val=724 test=1457
+censored: train=196 val=26 test=47
+features (1s), dim=3033
+  ep=1   nll_val=5.6161  R2_val=-6.0752  sigma=0.847  [t=0s]
+  ep=2   nll_val=1.4942  R2_val=-0.9880  sigma=0.861  [t=0s]
+  ep=3   nll_val=0.7209  R2_val=-0.0033  sigma=0.864  [t=0s]
+  ep=25  nll_val=0.4794  R2_val=0.2954  sigma=0.886  [t=4s]
+  ep=50  nll_val=0.4699  R2_val=0.3122  sigma=0.878  [t=24s]
+  ep=75  nll_val=0.4844  R2_val=0.3026  sigma=0.838  [t=60s]
+  early stop at ep=93 (best ep=33, nll=0.4510)
+
+=== TOBIT RESULT ===
+best ep=33  sigma=0.8885  nll_val=0.4510
+VAL  R2 = 0.3374
+TEST R2 = 0.4030   (baseline v4.2 = 0.4642)
+  by region: censored n=47 R2=0.0000
+             uncensored n=1410 R2=0.4665
+  raw f(x) test R2 (no censoring correction) = 0.4019
+
+=== multi-seed (3) ===
+  seed=0: ep=20 sigma=0.886 test R2=0.3715
+  seed=1: ep=24 sigma=0.887 test R2=0.4190
+  seed=2: ep=19 sigma=0.884 test R2=0.4264
+  mean=0.4056 sd=0.0243
+
+Done.

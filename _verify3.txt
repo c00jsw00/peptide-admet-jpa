@@ -1,0 +1,51 @@
+=== route1_results.json non-floor keys ===
+=== route2_results.json non-floor keys ===
+=== route3_results.json non-floor keys ===
+  .results.A_v4.2_MLP_baseline_per_region.nonfloor_n = 1410
+=== route4_results.json non-floor keys ===
+  .results.main_run_seed42.test_R2_by_region.uncensored_n = 1410
+  .results.main_run_seed42.test_R2_by_region.uncensored_R2 = 0.4665
+=== route5_results.json non-floor keys ===
+  .results.by_region_at_beta_0.50.nonfloor_n = 1410
+  .results.by_region_at_beta_0.50.nonfloor_R2 = 0.593
+  .results.by_region_at_beta_0.50.nonfloor_pred_median = -5.764
+=== label_avg_results.json non-floor keys ===
+=== chemberta_results.json non-floor keys ===
+  .results[0].test_r2_nonfloor = 0.6317
+  .results[1].test_r2_nonfloor = 0.624
+  .results[2].test_r2_nonfloor = 0.6118
+  .results[3].test_r2_nonfloor = 0.6297
+  .results[4].test_r2_nonfloor = 0.6041
+  .results[5].test_r2_nonfloor = 0.6547
+  .results[6].test_r2_nonfloor = 0.6411
+  .results[7].test_r2_nonfloor = 0.6383
+  .results[8].test_r2_nonfloor = 0.6195
+  .results[9].test_r2_nonfloor = 0.5026
+  .results[10].test_r2_nonfloor = 0.502
+  .results[11].test_r2_nonfloor = 0.4606
+R3 D_two_stage: {"v4.2_3033_thr0.5": {"R2_te": 0.4041, "floor_recall": 0.0, "floor_precision": 1.0}, "+Morgan_r1_thr0.5": {"R2_te": 0.4096, "floor_recall": 0.0, "floor_precision": 1.0}, "+Morgan_r1_r3_r4_thr0.5": {"R2_te": 0.4117, "floor_recall": 0.0, "floor_precision": 1.0}, "Morgan_only_r1_r4_thr0.5": {"R2_te": 0.3701, "floor_recall": 0.0, "floor_precision": 1.0}, "note": "Floor recall = 0.000 means classifier fails to identify any true floor rows at thr=0.5"}
+R8 pampa keys: ['endpoint', 'rows', 'unique_smiles', 'avg_replicates', 'floor_rows', 'floor_smiles', 'mixed_floor_smiles', 'floor_lifted_smiles', 'A_raw', 'B_label_avg', 'delta_r2_all_mean', 'delta_r2_per_seed']
+R8 pampa B_label_avg: {"42": {"r2_all": 0.4272, "spearman_all": 0.778}, "123": {"r2_all": 0.4669, "spearman_all": 0.7828}, "7": {"r2_all": 0.4019, "spearman_all": 0.7482}}
+R4 best_overall: null
+=== CACO2 CEILING (inline) ===
+caco2 csv: C:\Users\c00jsw00\openclaw-peptide-admet\data\pepadmet_caco2.csv
+ycol cands: ['Caco2']
+caco2 n=7429 floor=242 (3.3%)
+var_nf/var_total = 0.5096 -> ceiling if perfect nonfloor R2=1: 0.5096
+=== DOIs ===
+1 10.1016/j.jconrel.2026.114895 {'t': 'Therapeutic peptides and proteins: Status and developments in drug delivery', 'v': 'Journal of Controlled Release', 'y': 2026, 'au': ['Hornsby', 'Lee', 'Steele', 'Tuekpe', 'Lim']}
+2 10.1021/acs.jcim.5c02518 {'t': 'pepADMET: A Novel Computational Platform For Systematic ADMET Evaluation of Peptides', 'v': 'Journal of Chemical Information and Mode', 'y': 2026, 'au': ['Tan', 'Liu', 'Zhou', 'Fang', 'Ouyang', 'Zeng']}
+3 10.1038/s41467-026-74167-w {'t': 'PeptiVerse: A unified platform for therapeutic peptide property prediction', 'v': 'Nature Communications', 'y': 2026, 'au': ['Zhang', 'Tang', 'Chen', 'Mahood', 'Vincoff', 'Chatterjee']}
+4_tabpfn_v2 10.1038/s41586-024-08328-6 {'t': 'Accurate predictions on small data with a tabular foundation model', 'v': 'Nature', 'y': 2025, 'au': ['Hollmann', 'Müller', 'Purucker', 'Krishnakumar', 'Körfer', 'Hoo']}
+5_kpgt 10.48550/arXiv.2206.03364 {'err': 'Resource not found.'}
+6_chemberta 10.48550/arXiv.2010.09885 {'err': 'Resource not found.'}
+9_xgboost 10.1145/2939672.2939785 {'t': 'XGBoost', 'v': 'Proceedings of the 22nd ACM SIGKDD Inter', 'y': 2016, 'au': ['Chen', 'Guestrin']}
+10_lightgbm 10.48550/arXiv.1706.06067 {'err': 'Resource not found.'}
+11_mordred 10.1186/s13321-020-00455-y {'err': 'Resource not found.'}
+12_morgan 10.1021/ci100050t {'t': 'Extended-Connectivity Fingerprints', 'v': 'Journal of Chemical Information and Mode', 'y': 2010, 'au': ['Rogers', 'Hahn']}
+14_dgl 10.48550/arXiv.1909.01315 {'err': 'Resource not found.'}
+=== ESM-2 search ===
+   10.1021/acssynbio.3c00753 Combining Rosetta Sequence Design with Protein Language Model Predictions Using  ACS Synthetic Biology [[2024, 4, 3]]
+   10.52209/978-601-315-467-1 ESM quality model ? [[2017, 12, 30]]
+   10.7490/f1000research.1117602.1 New algorithms and tools for large-scale sequence analysis of metagenomic data ? [[2019, 11, 7]]
+=== v4.2 protocol doc ===

@@ -1,0 +1,8 @@
+{
+  "model": "deepchem/ChemBERTa-77M-MLM",
+  "dim": 384,
+  "n": 7283,
+  "pooling": "cls",
+  "dtype": "float32",
+  "created": "2026-08-27 07:16:04"
+}

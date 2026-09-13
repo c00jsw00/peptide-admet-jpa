@@ -1,0 +1,13 @@
+{
+  "version": "2.0",
+  "editor": "NVIDIA NIM GLM-5 Professional Academic Editing",
+  "date": "2026-03-24",
+  "input_file": "/home/c00jsw00/.openclaw/workspace/openclaw-peptide-admet-jcim/peptide_admet_manuscript_jcim.md",
+  "output_file": "/home/c00jsw00/.openclaw/workspace/openclaw-peptide-admet-jcim/peptide_admet_manuscript_jcim_new.md",
+  "original_size": 46706,
+  "edited_size": 49272,
+  "vocabulary_changes": 50,
+  "sentence_improvements": 2,
+  "error_fixes": 3,
+  "status": "completed"
+}

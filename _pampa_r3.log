@@ -1,0 +1,194 @@
+N=7283  unique=7177  train=5102 val=724 test=1457
+floor=-10.0  test: floor count = 47
+  Morgan r=1 done (3s)
+  Morgan r=3 done (7s)
+  Morgan r=4 done (11s)
+  features total (14s)
+
+=== A. current v4.2 MLP (models_v4/pampa_mdck) — per-region test R2 ===
+  overall test R2 (should reproduce ~0.4642): 0.4642
+    floor y==-10 (269-ish)   n=  47  R2=  0.0000  MAE=3.430  pred_range=[-10.01,-5.10]
+    bulk  -10<y<=-6          n= 441  R2= -0.1439  MAE=0.494  pred_range=[-10.09,-4.72]
+    tail  y>-6               n= 969  R2=  0.3093  MAE=0.285  pred_range=[-7.50,-3.89]
+
+=== B. LightGBM grid search (early stop on val, N_EST=1500) ===
+  [v4.2 (2265+768=3033)] lr=0.03 nl=31 mcs=10 ff=0.7  iter= 133  R2_te=0.4038  (6.9s)  [t=   21s]
+  [v4.2 (2265+768=3033)] lr=0.03 nl=31 mcs=10 ff=1.0  iter= 111  R2_te=0.4042  (8.8s)  [t=   30s]
+  [v4.2 (2265+768=3033)] lr=0.03 nl=31 mcs=30 ff=0.7  iter= 156  R2_te=0.4112  (6.7s)  [t=   37s]
+  [v4.2 (2265+768=3033)] lr=0.03 nl=31 mcs=30 ff=1.0  iter= 168  R2_te=0.4102  (9.6s)  [t=   47s]
+  [v4.2 (2265+768=3033)] lr=0.03 nl=63 mcs=10 ff=0.7  iter= 103  R2_te=0.3927  (11.9s)  [t=   58s]
+  [v4.2 (2265+768=3033)] lr=0.03 nl=63 mcs=10 ff=1.0  iter=  83  R2_te=0.3945  (15.0s)  [t=   73s]
+  [v4.2 (2265+768=3033)] lr=0.03 nl=63 mcs=30 ff=0.7  iter=  87  R2_te=0.4151  (9.5s)  [t=   83s]
+  [v4.2 (2265+768=3033)] lr=0.03 nl=63 mcs=30 ff=1.0  iter=  87  R2_te=0.4113  (13.1s)  [t=   96s]
+  [v4.2 (2265+768=3033)] lr=0.03 nl=127 mcs=10 ff=0.7  iter=  72  R2_te=0.3935  (18.9s)  [t=  115s]
+  [v4.2 (2265+768=3033)] lr=0.03 nl=127 mcs=10 ff=1.0  iter=  74  R2_te=0.3907  (26.3s)  [t=  141s]
+  [v4.2 (2265+768=3033)] lr=0.03 nl=127 mcs=30 ff=0.7  iter= 101  R2_te=0.4114  (15.6s)  [t=  157s]
+  [v4.2 (2265+768=3033)] lr=0.03 nl=127 mcs=30 ff=1.0  iter=  95  R2_te=0.4088  (21.2s)  [t=  178s]
+  [v4.2 (2265+768=3033)] lr=0.05 nl=31 mcs=10 ff=0.7  iter=  73  R2_te=0.4072  (5.5s)  [t=  183s]
+  [v4.2 (2265+768=3033)] lr=0.05 nl=31 mcs=10 ff=1.0  iter=  54  R2_te=0.4061  (7.0s)  [t=  190s]
+  [v4.2 (2265+768=3033)] lr=0.05 nl=31 mcs=30 ff=0.7  iter=  66  R2_te=0.4140  (4.7s)  [t=  195s]
+  [v4.2 (2265+768=3033)] lr=0.05 nl=31 mcs=30 ff=1.0  iter= 100  R2_te=0.4008  (7.4s)  [t=  203s]
+  [v4.2 (2265+768=3033)] lr=0.05 nl=63 mcs=10 ff=0.7  iter=  66  R2_te=0.3865  (9.7s)  [t=  212s]
+  [v4.2 (2265+768=3033)] lr=0.05 nl=63 mcs=10 ff=1.0  iter=  51  R2_te=0.3975  (12.5s)  [t=  225s]
+  [v4.2 (2265+768=3033)] lr=0.05 nl=63 mcs=30 ff=0.7  iter=  47  R2_te=0.4127  (8.0s)  [t=  233s]
+  [v4.2 (2265+768=3033)] lr=0.05 nl=63 mcs=30 ff=1.0  iter=  47  R2_te=0.4100  (10.9s)  [t=  244s]
+  [v4.2 (2265+768=3033)] lr=0.05 nl=127 mcs=10 ff=0.7  iter=  43  R2_te=0.3993  (16.5s)  [t=  260s]
+  [v4.2 (2265+768=3033)] lr=0.05 nl=127 mcs=10 ff=1.0  iter=  47  R2_te=0.3899  (22.9s)  [t=  283s]
+  [v4.2 (2265+768=3033)] lr=0.05 nl=127 mcs=30 ff=0.7  iter=  59  R2_te=0.4133  (13.0s)  [t=  296s]
+  [v4.2 (2265+768=3033)] lr=0.05 nl=127 mcs=30 ff=1.0  iter=  60  R2_te=0.4062  (18.1s)  [t=  314s]
+  [v4.2 (2265+768=3033)] lr=0.1 nl=31 mcs=10 ff=0.7  iter=  33  R2_te=0.3950  (4.4s)  [t=  318s]
+  [v4.2 (2265+768=3033)] lr=0.1 nl=31 mcs=10 ff=1.0  iter=  51  R2_te=0.3726  (6.5s)  [t=  325s]
+  [v4.2 (2265+768=3033)] lr=0.1 nl=31 mcs=30 ff=0.7  iter=  33  R2_te=0.4078  (4.0s)  [t=  329s]
+  [v4.2 (2265+768=3033)] lr=0.1 nl=31 mcs=30 ff=1.0  iter=  55  R2_te=0.3903  (5.9s)  [t=  335s]
+  [v4.2 (2265+768=3033)] lr=0.1 nl=63 mcs=10 ff=0.7  iter=  18  R2_te=0.3833  (7.5s)  [t=  342s]
+  [v4.2 (2265+768=3033)] lr=0.1 nl=63 mcs=10 ff=1.0  iter=  28  R2_te=0.3871  (10.7s)  [t=  353s]
+  [v4.2 (2265+768=3033)] lr=0.1 nl=63 mcs=30 ff=0.7  iter=  24  R2_te=0.4159  (6.9s)  [t=  360s]
+  [v4.2 (2265+768=3033)] lr=0.1 nl=63 mcs=30 ff=1.0  iter=  26  R2_te=0.4127  (9.5s)  [t=  369s]
+  [v4.2 (2265+768=3033)] lr=0.1 nl=127 mcs=10 ff=0.7  iter=  24  R2_te=0.3799  (14.3s)  [t=  384s]
+  [v4.2 (2265+768=3033)] lr=0.1 nl=127 mcs=10 ff=1.0  iter=  19  R2_te=0.3812  (19.2s)  [t=  403s]
+  [v4.2 (2265+768=3033)] lr=0.1 nl=127 mcs=30 ff=0.7  iter=  24  R2_te=0.4088  (11.2s)  [t=  414s]
+  [v4.2 (2265+768=3033)] lr=0.1 nl=127 mcs=30 ff=1.0  iter=  23  R2_te=0.4090  (15.3s)  [t=  429s]
+  [+Morgan r1] lr=0.03 nl=31 mcs=10 ff=0.7  iter= 125  R2_te=0.4041  (7.3s)  [t=  437s]
+  [+Morgan r1] lr=0.03 nl=31 mcs=10 ff=1.0  iter= 145  R2_te=0.4039  (10.8s)  [t=  448s]
+  [+Morgan r1] lr=0.03 nl=31 mcs=30 ff=0.7  iter= 129  R2_te=0.4175  (6.5s)  [t=  454s]
+  [+Morgan r1] lr=0.03 nl=31 mcs=30 ff=1.0  iter= 120  R2_te=0.4168  (8.6s)  [t=  463s]
+  [+Morgan r1] lr=0.03 nl=63 mcs=10 ff=0.7  iter=  95  R2_te=0.3966  (12.5s)  [t=  475s]
+  [+Morgan r1] lr=0.03 nl=63 mcs=10 ff=1.0  iter=  93  R2_te=0.3886  (17.0s)  [t=  492s]
+  [+Morgan r1] lr=0.03 nl=63 mcs=30 ff=0.7  iter=  87  R2_te=0.4154  (9.9s)  [t=  502s]
+  [+Morgan r1] lr=0.03 nl=63 mcs=30 ff=1.0  iter= 100  R2_te=0.4061  (14.5s)  [t=  517s]
+  [+Morgan r1] lr=0.03 nl=127 mcs=10 ff=0.7  iter=  81  R2_te=0.3886  (21.5s)  [t=  538s]
+  [+Morgan r1] lr=0.03 nl=127 mcs=10 ff=1.0  iter=  75  R2_te=0.3893  (29.0s)  [t=  567s]
+  [+Morgan r1] lr=0.03 nl=127 mcs=30 ff=0.7  iter= 101  R2_te=0.4145  (16.4s)  [t=  584s]
+  [+Morgan r1] lr=0.03 nl=127 mcs=30 ff=1.0  iter=  78  R2_te=0.4105  (20.8s)  [t=  604s]
+  [+Morgan r1] lr=0.05 nl=31 mcs=10 ff=0.7  iter=  93  R2_te=0.4049  (6.5s)  [t=  611s]
+  [+Morgan r1] lr=0.05 nl=31 mcs=10 ff=1.0  iter=  87  R2_te=0.4040  (8.7s)  [t=  620s]
+  [+Morgan r1] lr=0.05 nl=31 mcs=30 ff=0.7  iter=  95  R2_te=0.4129  (5.8s)  [t=  625s]
+  [+Morgan r1] lr=0.05 nl=31 mcs=30 ff=1.0  iter=  72  R2_te=0.4116  (7.2s)  [t=  633s]
+  [+Morgan r1] lr=0.05 nl=63 mcs=10 ff=0.7  iter=  59  R2_te=0.3857  (10.4s)  [t=  643s]
+  [+Morgan r1] lr=0.05 nl=63 mcs=10 ff=1.0  iter=  54  R2_te=0.3956  (14.0s)  [t=  657s]
+  [+Morgan r1] lr=0.05 nl=63 mcs=30 ff=0.7  iter=  93  R2_te=0.4001  (10.1s)  [t=  667s]
+  [+Morgan r1] lr=0.05 nl=63 mcs=30 ff=1.0  iter=  51  R2_te=0.4165  (11.9s)  [t=  679s]
+  [+Morgan r1] lr=0.05 nl=127 mcs=10 ff=0.7  iter=  43  R2_te=0.3838  (17.6s)  [t=  697s]
+  [+Morgan r1] lr=0.05 nl=127 mcs=10 ff=1.0  iter=  50  R2_te=0.3967  (25.3s)  [t=  722s]
+  [+Morgan r1] lr=0.05 nl=127 mcs=30 ff=0.7  iter=  60  R2_te=0.4137  (13.8s)  [t=  736s]
+  [+Morgan r1] lr=0.05 nl=127 mcs=30 ff=1.0  iter=  58  R2_te=0.4060  (19.0s)  [t=  755s]
+  [+Morgan r1] lr=0.1 nl=31 mcs=10 ff=0.7  iter=  38  R2_te=0.3790  (4.9s)  [t=  760s]
+  [+Morgan r1] lr=0.1 nl=31 mcs=10 ff=1.0  iter=  61  R2_te=0.3711  (7.5s)  [t=  767s]
+  [+Morgan r1] lr=0.1 nl=31 mcs=30 ff=0.7  iter=  30  R2_te=0.4122  (4.2s)  [t=  771s]
+  [+Morgan r1] lr=0.1 nl=31 mcs=30 ff=1.0  iter=  34  R2_te=0.4130  (5.8s)  [t=  777s]
+  [+Morgan r1] lr=0.1 nl=63 mcs=10 ff=0.7  iter=  35  R2_te=0.3853  (8.9s)  [t=  786s]
+  [+Morgan r1] lr=0.1 nl=63 mcs=10 ff=1.0  iter=  26  R2_te=0.3868  (12.0s)  [t=  798s]
+  [+Morgan r1] lr=0.1 nl=63 mcs=30 ff=0.7  iter=  24  R2_te=0.3959  (7.3s)  [t=  805s]
+  [+Morgan r1] lr=0.1 nl=63 mcs=30 ff=1.0  iter=  40  R2_te=0.3946  (10.9s)  [t=  816s]
+  [+Morgan r1] lr=0.1 nl=127 mcs=10 ff=0.7  iter=  20  R2_te=0.3829  (15.4s)  [t=  832s]
+  [+Morgan r1] lr=0.1 nl=127 mcs=10 ff=1.0  iter=  28  R2_te=0.3626  (22.3s)  [t=  854s]
+  [+Morgan r1] lr=0.1 nl=127 mcs=30 ff=0.7  iter=  22  R2_te=0.4047  (11.5s)  [t=  865s]
+  [+Morgan r1] lr=0.1 nl=127 mcs=30 ff=1.0  iter=  25  R2_te=0.4183  (16.5s)  [t=  882s]
+  [+Morgan r1,r3,r4] lr=0.03 nl=31 mcs=10 ff=0.7  iter= 126  R2_te=0.4110  (13.1s)  [t=  895s]
+  [+Morgan r1,r3,r4] lr=0.03 nl=31 mcs=10 ff=1.0  iter= 119  R2_te=0.4115  (17.6s)  [t=  913s]
+  [+Morgan r1,r3,r4] lr=0.03 nl=31 mcs=30 ff=0.7  iter= 144  R2_te=0.4147  (11.4s)  [t=  924s]
+  [+Morgan r1,r3,r4] lr=0.03 nl=31 mcs=30 ff=1.0  iter= 159  R2_te=0.4078  (16.3s)  [t=  940s]
+  [+Morgan r1,r3,r4] lr=0.03 nl=63 mcs=10 ff=0.7  iter=  83  R2_te=0.3997  (20.9s)  [t=  961s]
+  [+Morgan r1,r3,r4] lr=0.03 nl=63 mcs=10 ff=1.0  iter=  67  R2_te=0.3993  (27.1s)  [t=  988s]
+  [+Morgan r1,r3,r4] lr=0.03 nl=63 mcs=30 ff=0.7  iter=  95  R2_te=0.4127  (17.5s)  [t= 1006s]
+  [+Morgan r1,r3,r4] lr=0.03 nl=63 mcs=30 ff=1.0  iter= 118  R2_te=0.4079  (26.3s)  [t= 1032s]
+  [+Morgan r1,r3,r4] lr=0.03 nl=127 mcs=10 ff=0.7  iter=  66  R2_te=0.4007  (36.1s)  [t= 1068s]
+  [+Morgan r1,r3,r4] lr=0.03 nl=127 mcs=10 ff=1.0  iter=  70  R2_te=0.3982  (51.2s)  [t= 1120s]
+  [+Morgan r1,r3,r4] lr=0.03 nl=127 mcs=30 ff=0.7  iter= 106  R2_te=0.4084  (28.5s)  [t= 1148s]
+  [+Morgan r1,r3,r4] lr=0.03 nl=127 mcs=30 ff=1.0  iter=  86  R2_te=0.4124  (36.6s)  [t= 1185s]
+  [+Morgan r1,r3,r4] lr=0.05 nl=31 mcs=10 ff=0.7  iter=  65  R2_te=0.4105  (10.3s)  [t= 1195s]
+  [+Morgan r1,r3,r4] lr=0.05 nl=31 mcs=10 ff=1.0  iter=  60  R2_te=0.4044  (13.7s)  [t= 1209s]
+  [+Morgan r1,r3,r4] lr=0.05 nl=31 mcs=30 ff=0.7  iter= 120  R2_te=0.4108  (10.3s)  [t= 1219s]
+  [+Morgan r1,r3,r4] lr=0.05 nl=31 mcs=30 ff=1.0  iter=  92  R2_te=0.4116  (12.7s)  [t= 1232s]
+  [+Morgan r1,r3,r4] lr=0.05 nl=63 mcs=10 ff=0.7  iter=  54  R2_te=0.3910  (18.1s)  [t= 1250s]
+  [+Morgan r1,r3,r4] lr=0.05 nl=63 mcs=10 ff=1.0  iter=  55  R2_te=0.3891  (25.3s)  [t= 1275s]
+  [+Morgan r1,r3,r4] lr=0.05 nl=63 mcs=30 ff=0.7  iter=  52  R2_te=0.4175  (14.3s)  [t= 1289s]
+  [+Morgan r1,r3,r4] lr=0.05 nl=63 mcs=30 ff=1.0  iter=  60  R2_te=0.4120  (20.4s)  [t= 1310s]
+  [+Morgan r1,r3,r4] lr=0.05 nl=127 mcs=10 ff=0.7  iter=  40  R2_te=0.3833  (31.0s)  [t= 1341s]
+  [+Morgan r1,r3,r4] lr=0.05 nl=127 mcs=10 ff=1.0  iter=  44  R2_te=0.3956  (43.7s)  [t= 1385s]
+  [+Morgan r1,r3,r4] lr=0.05 nl=127 mcs=30 ff=0.7  iter=  65  R2_te=0.4154  (24.1s)  [t= 1409s]
+  [+Morgan r1,r3,r4] lr=0.05 nl=127 mcs=30 ff=1.0  iter=  58  R2_te=0.4130  (32.1s)  [t= 1441s]
+  [+Morgan r1,r3,r4] lr=0.1 nl=31 mcs=10 ff=0.7  iter=  34  R2_te=0.4030  (8.9s)  [t= 1450s]
+  [+Morgan r1,r3,r4] lr=0.1 nl=31 mcs=10 ff=1.0  iter=  54  R2_te=0.3889  (13.0s)  [t= 1463s]
+  [+Morgan r1,r3,r4] lr=0.1 nl=31 mcs=30 ff=0.7  iter=  34  R2_te=0.4127  (7.3s)  [t= 1470s]
+  [+Morgan r1,r3,r4] lr=0.1 nl=31 mcs=30 ff=1.0  iter=  31  R2_te=0.4229  (9.6s)  [t= 1480s]
+  [+Morgan r1,r3,r4] lr=0.1 nl=63 mcs=10 ff=0.7  iter=  22  R2_te=0.3826  (15.0s)  [t= 1495s]
+  [+Morgan r1,r3,r4] lr=0.1 nl=63 mcs=10 ff=1.0  iter=  31  R2_te=0.3819  (21.6s)  [t= 1516s]
+  [+Morgan r1,r3,r4] lr=0.1 nl=63 mcs=30 ff=0.7  iter=  33  R2_te=0.3898  (13.1s)  [t= 1529s]
+  [+Morgan r1,r3,r4] lr=0.1 nl=63 mcs=30 ff=1.0  iter=  22  R2_te=0.4107  (16.8s)  [t= 1546s]
+  [+Morgan r1,r3,r4] lr=0.1 nl=127 mcs=10 ff=0.7  iter=  21  R2_te=0.3691  (27.7s)  [t= 1574s]
+  [+Morgan r1,r3,r4] lr=0.1 nl=127 mcs=10 ff=1.0  iter=  16  R2_te=0.3920  (37.0s)  [t= 1611s]
+  [+Morgan r1,r3,r4] lr=0.1 nl=127 mcs=30 ff=0.7  iter=  22  R2_te=0.4037  (19.4s)  [t= 1630s]
+  [+Morgan r1,r3,r4] lr=0.1 nl=127 mcs=30 ff=1.0  iter=  25  R2_te=0.4234  (27.7s)  [t= 1658s]
+  [Morgan only (r1..r4)] lr=0.03 nl=31 mcs=10 ff=0.7  iter= 114  R2_te=0.3665  (10.8s)  [t= 1669s]
+  [Morgan only (r1..r4)] lr=0.03 nl=31 mcs=10 ff=1.0  iter= 200  R2_te=0.3545  (19.0s)  [t= 1688s]
+  [Morgan only (r1..r4)] lr=0.03 nl=31 mcs=30 ff=0.7  iter= 172  R2_te=0.3706  (11.3s)  [t= 1699s]
+  [Morgan only (r1..r4)] lr=0.03 nl=31 mcs=30 ff=1.0  iter= 200  R2_te=0.3666  (16.9s)  [t= 1716s]
+  [Morgan only (r1..r4)] lr=0.03 nl=63 mcs=10 ff=0.7  iter=  80  R2_te=0.3612  (17.7s)  [t= 1734s]
+  [Morgan only (r1..r4)] lr=0.03 nl=63 mcs=10 ff=1.0  iter=  81  R2_te=0.3470  (24.4s)  [t= 1758s]
+  [Morgan only (r1..r4)] lr=0.03 nl=63 mcs=30 ff=0.7  iter= 144  R2_te=0.3621  (19.1s)  [t= 1777s]
+  [Morgan only (r1..r4)] lr=0.03 nl=63 mcs=30 ff=1.0  iter= 106  R2_te=0.3710  (22.9s)  [t= 1800s]
+  [Morgan only (r1..r4)] lr=0.03 nl=127 mcs=10 ff=0.7  iter=  71  R2_te=0.3532  (30.7s)  [t= 1831s]
+  [Morgan only (r1..r4)] lr=0.03 nl=127 mcs=10 ff=1.0  iter=  61  R2_te=0.3413  (42.3s)  [t= 1873s]
+  [Morgan only (r1..r4)] lr=0.03 nl=127 mcs=30 ff=0.7  iter=  93  R2_te=0.3712  (24.5s)  [t= 1898s]
+  [Morgan only (r1..r4)] lr=0.03 nl=127 mcs=30 ff=1.0  iter= 119  R2_te=0.3698  (37.7s)  [t= 1935s]
+  [Morgan only (r1..r4)] lr=0.05 nl=31 mcs=10 ff=0.7  iter=  83  R2_te=0.3599  (9.4s)  [t= 1945s]
+  [Morgan only (r1..r4)] lr=0.05 nl=31 mcs=10 ff=1.0  iter=  82  R2_te=0.3536  (12.7s)  [t= 1957s]
+  [Morgan only (r1..r4)] lr=0.05 nl=31 mcs=30 ff=0.7  iter=  80  R2_te=0.3620  (8.3s)  [t= 1966s]
+  [Morgan only (r1..r4)] lr=0.05 nl=31 mcs=30 ff=1.0  iter=  69  R2_te=0.3672  (10.8s)  [t= 1977s]
+  [Morgan only (r1..r4)] lr=0.05 nl=63 mcs=10 ff=0.7  iter=  43  R2_te=0.3506  (14.7s)  [t= 1991s]
+  [Morgan only (r1..r4)] lr=0.05 nl=63 mcs=10 ff=1.0  iter=  55  R2_te=0.3527  (21.1s)  [t= 2012s]
+  [Morgan only (r1..r4)] lr=0.05 nl=63 mcs=30 ff=0.7  iter=  74  R2_te=0.3612  (14.6s)  [t= 2027s]
+  [Morgan only (r1..r4)] lr=0.05 nl=63 mcs=30 ff=1.0  iter=  55  R2_te=0.3722  (18.6s)  [t= 2046s]
+  [Morgan only (r1..r4)] lr=0.05 nl=127 mcs=10 ff=0.7  iter=  40  R2_te=0.3519  (26.9s)  [t= 2072s]
+  [Morgan only (r1..r4)] lr=0.05 nl=127 mcs=10 ff=1.0  iter=  39  R2_te=0.3444  (36.6s)  [t= 2109s]
+  [Morgan only (r1..r4)] lr=0.05 nl=127 mcs=30 ff=0.7  iter=  57  R2_te=0.3690  (21.5s)  [t= 2131s]
+  [Morgan only (r1..r4)] lr=0.05 nl=127 mcs=30 ff=1.0  iter=  44  R2_te=0.3718  (27.9s)  [t= 2158s]
+  [Morgan only (r1..r4)] lr=0.1 nl=31 mcs=10 ff=0.7  iter=  59  R2_te=0.3393  (8.2s)  [t= 2167s]
+  [Morgan only (r1..r4)] lr=0.1 nl=31 mcs=10 ff=1.0  iter=  36  R2_te=0.3535  (10.1s)  [t= 2177s]
+  [Morgan only (r1..r4)] lr=0.1 nl=31 mcs=30 ff=0.7  iter=  42  R2_te=0.3612  (6.8s)  [t= 2184s]
+  [Morgan only (r1..r4)] lr=0.1 nl=31 mcs=30 ff=1.0  iter=  27  R2_te=0.3624  (8.6s)  [t= 2192s]
+  [Morgan only (r1..r4)] lr=0.1 nl=63 mcs=10 ff=0.7  iter=  35  R2_te=0.3342  (13.4s)  [t= 2206s]
+  [Morgan only (r1..r4)] lr=0.1 nl=63 mcs=10 ff=1.0  iter=  38  R2_te=0.3205  (18.7s)  [t= 2224s]
+  [Morgan only (r1..r4)] lr=0.1 nl=63 mcs=30 ff=0.7  iter=  25  R2_te=0.3619  (11.5s)  [t= 2236s]
+  [Morgan only (r1..r4)] lr=0.1 nl=63 mcs=30 ff=1.0  iter=  31  R2_te=0.3627  (16.2s)  [t= 2252s]
+  [Morgan only (r1..r4)] lr=0.1 nl=127 mcs=10 ff=0.7  iter=  18  R2_te=0.3364  (22.9s)  [t= 2275s]
+  [Morgan only (r1..r4)] lr=0.1 nl=127 mcs=10 ff=1.0  iter=  15  R2_te=0.3290  (31.0s)  [t= 2306s]
+  [Morgan only (r1..r4)] lr=0.1 nl=127 mcs=30 ff=0.7  iter=  36  R2_te=0.3527  (19.3s)  [t= 2325s]
+  [Morgan only (r1..r4)] lr=0.1 nl=127 mcs=30 ff=1.0  iter=  31  R2_te=0.3573  (25.9s)  [t= 2351s]
+
+  TOP-5 LightGBM configs (test R2):
+    R2=0.4234  +Morgan r1,r3,r4  lr=0.1 nl=127 mcs=30 ff=1.0  it=25
+    R2=0.4229  +Morgan r1,r3,r4  lr=0.1 nl=31 mcs=30 ff=1.0  it=31
+    R2=0.4183  +Morgan r1  lr=0.1 nl=127 mcs=30 ff=1.0  it=25
+    R2=0.4175  +Morgan r1  lr=0.03 nl=31 mcs=30 ff=0.7  it=129
+    R2=0.4175  +Morgan r1,r3,r4  lr=0.05 nl=63 mcs=30 ff=0.7  it=52
+
+=== C. best-3 configs x 5 seeds, ensemble in logPapp space ===
+  +Morgan r1  lr=0.03 nl=31 mcs=30 ff=0.7: per-seed mean=0.4138 sd=0.0030  ENSEMBLE R2=0.4176
+  +Morgan r1,r3,r4  lr=0.03 nl=31 mcs=30 ff=0.7: per-seed mean=0.4117 sd=0.0060  ENSEMBLE R2=0.4157
+  +Morgan r1  lr=0.03 nl=31 mcs=30 ff=1.0: per-seed mean=0.4132 sd=0.0028  ENSEMBLE R2=0.4165
+
+=== D. TWO-STAGE: floor classifier + non-floor regressor ===
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\lightgbm\sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\lightgbm\sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+  v4.2 (2265+768=3033)  thr=0.5:  R2_te=0.4041  (floor recall=0.000  floor precision=1.000)
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\lightgbm\sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\lightgbm\sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+  +Morgan r1  thr=0.5:  R2_te=0.4096  (floor recall=0.000  floor precision=1.000)
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\lightgbm\sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\lightgbm\sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+  +Morgan r1,r3,r4  thr=0.5:  R2_te=0.4117  (floor recall=0.000  floor precision=1.000)
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\lightgbm\sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\lightgbm\sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+  Morgan only (r1..r4)  thr=0.5:  R2_te=0.3701  (floor recall=0.000  floor precision=1.000)
+
+Done. Wall time 2606s

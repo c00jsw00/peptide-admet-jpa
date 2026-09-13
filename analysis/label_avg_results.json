@@ -1,0 +1,91 @@
+{
+  "pampa": {
+    "endpoint": "PAMPA_MDCK",
+    "rows": 7283,
+    "unique_smiles": 7177,
+    "avg_replicates": 1.015,
+    "floor_rows": 269,
+    "floor_smiles": 269,
+    "mixed_floor_smiles": 0,
+    "floor_lifted_smiles": 0,
+    "A_raw": {
+      "42": {
+        "r2_all": 0.4642,
+        "spearman_all": 0.7932
+      },
+      "123": {
+        "r2_all": 0.4759,
+        "spearman_all": 0.7846
+      },
+      "7": {
+        "r2_all": 0.4015,
+        "spearman_all": 0.7497
+      }
+    },
+    "B_label_avg": {
+      "42": {
+        "r2_all": 0.4272,
+        "spearman_all": 0.778
+      },
+      "123": {
+        "r2_all": 0.4669,
+        "spearman_all": 0.7828
+      },
+      "7": {
+        "r2_all": 0.4019,
+        "spearman_all": 0.7482
+      }
+    },
+    "delta_r2_all_mean": -0.0152,
+    "delta_r2_per_seed": [
+      -0.037,
+      -0.009,
+      0.0004
+    ]
+  },
+  "caco2": {
+    "endpoint": "Caco2",
+    "rows": 7429,
+    "unique_smiles": 7376,
+    "avg_replicates": 1.007,
+    "floor_rows": 242,
+    "floor_smiles": 242,
+    "mixed_floor_smiles": 0,
+    "floor_lifted_smiles": 0,
+    "A_raw": {
+      "42": {
+        "r2_all": 0.4005,
+        "spearman_all": 0.7164
+      },
+      "123": {
+        "r2_all": 0.3727,
+        "spearman_all": 0.7149
+      },
+      "7": {
+        "r2_all": 0.3553,
+        "spearman_all": 0.7399
+      }
+    },
+    "B_label_avg": {
+      "42": {
+        "r2_all": 0.3953,
+        "spearman_all": 0.7179
+      },
+      "123": {
+        "r2_all": 0.3867,
+        "spearman_all": 0.7284
+      },
+      "7": {
+        "r2_all": 0.3541,
+        "spearman_all": 0.7313
+      }
+    },
+    "delta_r2_all_mean": 0.0025,
+    "delta_r2_per_seed": [
+      -0.0052,
+      0.014,
+      -0.0012
+    ]
+  },
+  "note": "A = raw rows (committed v4.2 protocol); B = one row per unique SMILES, y = arithmetic mean of replicate labels (pepADMET Methods step 1). Same features, same leakage-controlled unique-SMILES 70/10/20 split, same MLP+Huber trainer. A seed=42 reproduces committed baseline exactly."
+}

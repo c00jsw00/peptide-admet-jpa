@@ -1,0 +1,63 @@
+{
+  "route": 1,
+  "name": "Descriptor Expansion",
+  "script": "round1_feature_ablation.py",
+  "split": "common.split_smiles seed=42, unique-SMILES 70/10/20",
+  "results": {
+    "seed42_baseline_v4.2": {
+      "r2_all": 0.4642,
+      "desc": "RDKit+Morgan r2+MoLFormer (2265+768=3033), (256,128), Huber"
+    },
+    "step1_signal_localization_seed42": {
+      "RDKit_217": 0.295,
+      "Morgan_r2_2048": 0.4419,
+      "MoLFormer_768": 0.4009,
+      "RDKit_Morgan_r2_2265_v4.2": 0.4539,
+      "RDKit_MoLFormer_985": 0.4243,
+      "Morgan_r2_MoLFormer_2816": 0.4406,
+      "ALL_3033": 0.444
+    },
+    "step2_feature_upgrades_seed42": {
+      "RDKit_Morgan_r1_r2_r3_6361": 0.4463,
+      "RDKit_Morgan_r1_r2_4313": 0.4623,
+      "ALL_Morgan_r1_r3_7129": 0.4624
+    },
+    "step2_target_transforms_seed42": {
+      "identity_ALL_3033": 0.444,
+      "rankgauss_ALL_3033": 0.6603
+    },
+    "step3_arch_upgrades_seed42": {
+      "256_128": 0.444,
+      "512_256_128": 0.4517,
+      "512_256_128_64": 0.4491,
+      "1024_512_256": 0.4572
+    },
+    "step4_multiseed_5seeds_best_config": {
+      "seeds": [
+        42,
+        123,
+        456,
+        789,
+        1024
+      ],
+      "r2_values": [
+        0.444,
+        0.4483,
+        0.4476,
+        0.4416,
+        0.4466
+      ],
+      "mean": 0.4456,
+      "std": 0.0025,
+      "min": 0.4416,
+      "max": 0.4483,
+      "config": "ALL features (3033), identity target, (256,128), Huber"
+    },
+    "best_overall_seed42": {
+      "config": "rankgauss target / rankgauss (FULL features)",
+      "r2": 0.6603,
+      "note": "LEAKY - full-data rank transform, not comparable to honest protocol"
+    }
+  },
+  "conclusion": "Best honest multi-seed: 0.4456 +/- 0.0025 (identity target). Rank-Gaussian target gives 0.6603 but uses leaky full-data transform. Target 0.70 NOT reached."
+}

@@ -1,0 +1,49 @@
+{
+  "device": "cuda",
+  "split": "common.split_smiles seed=42",
+  "n_train": 5102,
+  "n_val": 724,
+  "n_test": 1457,
+  "baseline_lightgbm": {
+    "r2_all": 0.4642,
+    "r2_nonfloor": 0.6317
+  },
+  "results": {
+    "desc": {
+      "r2_all": 0.4962,
+      "r2_all_std": 0.0016,
+      "r2_nonfloor": 0.6268,
+      "spearman": 0.7976,
+      "mae": 0.4509,
+      "seeds": {
+        "42": 0.494,
+        "123": 0.4972,
+        "7": 0.4973
+      }
+    },
+    "desc+morgan": {
+      "r2_all": 0.4813,
+      "r2_all_std": 0.003,
+      "r2_nonfloor": 0.5866,
+      "spearman": 0.7873,
+      "mae": 0.4695,
+      "seeds": {
+        "42": 0.4777,
+        "123": 0.481,
+        "7": 0.4851
+      }
+    },
+    "desc+morgan+molf": {
+      "r2_all": 0.482,
+      "r2_all_std": 0.0068,
+      "r2_nonfloor": 0.628,
+      "spearman": 0.7994,
+      "mae": 0.4538,
+      "seeds": {
+        "42": 0.4767,
+        "123": 0.4778,
+        "7": 0.4916
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/207 [00:00<?, ?it/s]Loading weights: 100%|██████████| 207/207 [00:00<00:00, 7958.83it/s]
+[transformers] [1mMolformerModel LOAD REPORT[0m from: ibm-research/MoLFormer-XL-both-10pct
+Key                                | Status     |  | 
+-----------------------------------+------------+--+-
+lm_head.transform.LayerNorm.weight | UNEXPECTED |  | 
+lm_head.transform.dense.weight     | UNEXPECTED |  | 
+lm_head.transform.LayerNorm.bias   | UNEXPECTED |  | 
+lm_head.decoder.weight             | UNEXPECTED |  | 
+lm_head.transform.dense.bias       | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[molformer] loaded ibm-research/MoLFormer-XL-both-10pct in 2.5s
+[molformer] pampa_mdck: 7283 rows -> embedding
+[molformer] 64/7283  (27.0/s, ETA 4.5 min)
+[molformer] 1344/7283  (28.2/s, ETA 3.5 min)
+[molformer] 2624/7283  (28.7/s, ETA 2.7 min)
+[molformer] 3904/7283  (31.2/s, ETA 1.8 min)
+[molformer] 5184/7283  (29.0/s, ETA 1.2 min)
+[molformer] 6464/7283  (28.5/s, ETA 0.5 min)
+[molformer] pampa_mdck: saved C:\Users\c00jsw00\openclaw-peptide-admet\data\molformer\molformer_emb_pampa_mdck.npz (shape (7283, 768))
+[molformer] all done

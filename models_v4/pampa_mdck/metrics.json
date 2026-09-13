@@ -1,0 +1,87 @@
+{
+  "endpoint": "PAMPA_MDCK",
+  "kind": "regression",
+  "modality": "molecular",
+  "model": "MixedADMETMLP (single head, per-endpoint)",
+  "n_params": 810497,
+  "input_dim": 3033,
+  "trunk_hidden": [
+    256,
+    128
+  ],
+  "regression_loss": "huber",
+  "feature_layout": "2265-dim classical (217 RDKit 2D descriptors + 2048-bit Morgan radius 2) + 768-dim frozen MoLFormer-XL CLS embedding = 3033",
+  "esmc": null,
+  "molformer": {
+    "model": "ibm-research/MoLFormer-XL-both-10pct",
+    "embedding_dim": 768,
+    "aggregation": "CLS token",
+    "frozen": true,
+    "cache": "data/molformer/molformer_emb_pampa_mdck.npz"
+  },
+  "target_aggregation": null,
+  "target_transform": "identity",
+  "raw_units": "logPapp",
+  "data_source": "Chemit797/PepADMET-Dataset (real experimental data)",
+  "n_samples": 7283,
+  "binary_pos_weight": null,
+  "training": {
+    "epochs_max": 80,
+    "early_stopping": "val loss, patience 10",
+    "seed": 42,
+    "optimizer": "Adam lr=1e-3 wd=1e-5",
+    "scheduler": "ReduceLROnPlateau factor 0.5 patience 4"
+  },
+  "splits": {
+    "primary": {
+      "audit": {
+        "method": "random 70/10/20 on unique SMILES (no sequence available -> no homology control possible; exact-duplicate SMILES grouped into one split)",
+        "n_unique_smiles": 7177,
+        "n_rows": 7283,
+        "counts": {
+          "train": 5102,
+          "val": 724,
+          "test": 1457
+        },
+        "leakage_caveat": "near-isomeric structures (different SMILES, same chemistry) CAN cross the boundary — a real-data limitation of SMILES-only data, weaker than the 3-mer homology control used for sequence endpoints."
+      },
+      "test": {
+        "kind": "regression",
+        "modality": "molecular",
+        "n": 1457,
+        "r2": 0.4642,
+        "rmse": 0.7991,
+        "mae": 0.45,
+        "target_units": "logPapp",
+        "y_range": [
+          -10.0,
+          -4.0
+        ],
+        "pred_range": [
+          -10.0869,
+          -3.8906
+        ]
+      },
+      "val": {
+        "kind": "regression",
+        "modality": "molecular",
+        "n": 724,
+        "r2": 0.3636,
+        "rmse": 0.8558,
+        "mae": 0.4542,
+        "target_units": "logPapp",
+        "y_range": [
+          -10.0,
+          -4.19
+        ],
+        "pred_range": [
+          -10.9127,
+          -4.1007
+        ]
+      }
+    },
+    "comparison": null
+  },
+  "elapsed_s": 130.1,
+  "generated_at": "2026-08-26 17:52:11"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "ibm-research/MoLFormer-XL-both-10pct",
+  "dim": 768,
+  "n": 7429,
+  "pooling": "cls",
+  "dtype": "float32",
+  "created": "2026-08-26 10:14:54"
+}

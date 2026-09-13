@@ -1,0 +1,35 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/53 [00:00<?, ?it/s]Loading weights: 100%|██████████| 53/53 [00:00<00:00, 52965.95it/s]
+[transformers] [1mRobertaModel LOAD REPORT[0m from: DeepChem/ChemBERTa-77M-MLM
+Key                       | Status     | 
+--------------------------+------------+-
+lm_head.layer_norm.bias   | UNEXPECTED | 
+lm_head.layer_norm.weight | UNEXPECTED | 
+lm_head.decoder.weight    | UNEXPECTED | 
+lm_head.dense.weight      | UNEXPECTED | 
+lm_head.bias              | UNEXPECTED | 
+lm_head.decoder.bias      | UNEXPECTED | 
+lm_head.dense.bias        | UNEXPECTED | 
+pooler.dense.bias         | MISSING    | 
+pooler.dense.weight       | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+[chemberta] loaded DeepChem/ChemBERTa-77M-MLM in 1.5s
+[chemberta] pampa_mdck: 7283 rows
+[chemberta] 64/7283  (625.8/s, ETA 0.2 min)
+[chemberta] 1344/7283  (657.9/s, ETA 0.2 min)
+[chemberta] 2624/7283  (676.2/s, ETA 0.1 min)
+[chemberta] 3904/7283  (742.9/s, ETA 0.1 min)
+[chemberta] 5184/7283  (693.0/s, ETA 0.1 min)
+[chemberta] 6464/7283  (685.8/s, ETA 0.0 min)
+[chemberta] saved C:\Users\c00jsw00\openclaw-peptide-admet\data\molformer\chemberta_emb_pampa_mdck.npz (shape (7283, 384))
+[chemberta] caco2: 7429 rows
+[chemberta] 64/7429  (625.8/s, ETA 0.2 min)
+[chemberta] 1344/7429  (663.6/s, ETA 0.2 min)
+[chemberta] 2624/7429  (666.6/s, ETA 0.1 min)
+[chemberta] 3904/7429  (722.2/s, ETA 0.1 min)
+[chemberta] 5184/7429  (678.0/s, ETA 0.1 min)
+[chemberta] 6464/7429  (669.8/s, ETA 0.0 min)
+[chemberta] saved C:\Users\c00jsw00\openclaw-peptide-admet\data\molformer\chemberta_emb_caco2.npz (shape (7429, 384))

@@ -1,0 +1,30 @@
+# Byte-compiled / cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Heavy feature caches (regenerable via analysis scripts; >100MB GitHub limit)
+_*_feat_cache.npz
+_pampa_feat_cache.npz
+_caco2_feat_cache.npz
+_pv_pampa_feat_cache.npz
+_pv_caco2_feat_cache.npz
+_feat_cache.npz
+
+# One-off verification/scratch scripts and logs (session artifacts)
+_doi*.py
+_doi*.txt
+_verify*.py
+_verify*.txt
+_v*.py
+_v*.txt
+_feat.txt
+_dump_routes.txt
+
+# Training caches / logs kept local
+*.log
+!analysis/*.log
+
+# OS
+Thumbs.db
+.DS_Store

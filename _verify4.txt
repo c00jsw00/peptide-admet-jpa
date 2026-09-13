@@ -1,0 +1,33 @@
+=== arXiv / other DOIs via doi.org ===
+R5_KPGT_2206.03364           -> KPGT: Knowledge-Guided Pre-training of Graph Transformer f | arXiv | [2022]
+R6_ChemBERTa_2010.09885      -> ChemBERTa: Large-Scale Self-Supervised Pretraining for Mol |  | [2020]
+R10_LightGBM_1706.06067      -> Compactification of certain Kähler manifolds with nonnegat |  | [2017]
+R14_DGL_1909.01315           -> Deep Graph Library: A Graph-Centric, Highly-Performant Pac |  | [2019]
+Mordred_13321                -> FAIL: <!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <meta charse
+TabPFNV1_2409.07270          -> Rescaling transformations and the Grothendieck bound forma | arXiv | [2024]
+ESMC_2401.04735              -> Recent advances of Beyond the Standard model cosmology | arXiv | [2024]
+MolFormer_2111.00964         -> Dynamic Spatio-temporal Zero-inflated Poisson Models for P |  | [2021]
+TabPFNV2_Nature              -> Accurate predictions on small data with a tabular foundati | Nature | [2025, 1, 8]
+
+=== non-floor R2 per route (full JSON) ===
+-- route1_results.json:
+-- route2_results.json:
+-- route3_results.json:
+   nonfloor_n = 1410
+-- route5_results.json:
+   nonfloor_n = 1410
+   nonfloor_R2 = 0.593
+   nonfloor_pred_median = -5.764
+-- label_avg_results.json:
+
+=== Caco-2 ceiling detail ===
+n=7429 floor=242 (3.3%)  V_tot=1.0971 sigma2_nf=0.5591  sigma2/V=0.5096 (ceiling if non-floor R2=1)
+
+=== PeptiVerse overlap (our set vs PV) ===
+peptiverse data dir files: ['caco2_train.parquet', 'caco2_val.parquet', 'pampa_train.parquet', 'pampa_val.parquet']
+PV cols: ['sequence', 'label', 'embedding'] rows 484
+PV seq col: ['sequence']

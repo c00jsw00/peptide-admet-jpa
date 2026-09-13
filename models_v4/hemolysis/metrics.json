@@ -1,0 +1,91 @@
+{
+  "endpoint": "Hemolysis",
+  "kind": "binary",
+  "modality": "sequence",
+  "model": "MixedADMETMLP (single head, per-endpoint)",
+  "n_params": 438529,
+  "input_dim": 1580,
+  "trunk_hidden": [
+    256,
+    128
+  ],
+  "regression_loss": null,
+  "feature_layout": "428-dim classical (20 AAC + 400 DPC + 8 physchem) + 1152-dim frozen ESMC-600M embedding = 1580",
+  "esmc": {
+    "model": "biohub/ESMC-600M",
+    "embedding_dim": 1152,
+    "aggregation": "mean-pooled token states",
+    "frozen": true,
+    "cache": "data/esmc/esmc_emb_hemolysis.npz"
+  },
+  "molformer": null,
+  "target_aggregation": null,
+  "target_transform": "identity",
+  "raw_units": "",
+  "data_source": "Chemit797/PepADMET-Dataset (real experimental data)",
+  "n_samples": 8719,
+  "binary_pos_weight": 3.421739101409912,
+  "training": {
+    "epochs_max": 80,
+    "early_stopping": "val loss, patience 10",
+    "seed": 42,
+    "optimizer": "Adam lr=1e-3 wd=1e-5",
+    "scheduler": "ReduceLROnPlateau factor 0.5 patience 4"
+  },
+  "splits": {
+    "primary": {
+      "audit": {
+        "method": "rows collapsed by canonical 3-mer-multiset signature (jaccard-1.0 anagrams merged to one family), then greedy single-linkage 3-mer Jaccard clustering (threshold), family-level split (AMPBench-MT-style homology control, arXiv:2607.25518)",
+        "threshold": 0.35,
+        "n_unique_signatures": 8701,
+        "n_families": 7886,
+        "max_train_test_kmer_jaccard_audited": 0.9677,
+        "exact_multiset_leakage": "guaranteed 0 (signature collapse)",
+        "counts": {
+          "train": 6102,
+          "val": 872,
+          "test": 1745
+        }
+      },
+      "test": {
+        "kind": "binary",
+        "modality": "sequence",
+        "n": 1745,
+        "auc": 0.8348,
+        "mcc": 0.4557,
+        "accuracy": 0.7479,
+        "pos_rate": 0.2338
+      },
+      "val": {
+        "kind": "binary",
+        "modality": "sequence",
+        "n": 872,
+        "auc": 0.8173,
+        "mcc": 0.4389,
+        "accuracy": 0.7305,
+        "pos_rate": 0.2408
+      }
+    },
+    "comparison": {
+      "audit": {
+        "method": "random 70/10/20 (comparison only — inflated by near-duplicate leakage)",
+        "counts": {
+          "train": 6103,
+          "val": 871,
+          "test": 1745
+        }
+      },
+      "test": {
+        "kind": "binary",
+        "modality": "sequence",
+        "n": 1745,
+        "auc": 0.8112,
+        "mcc": 0.4077,
+        "accuracy": 0.7341,
+        "pos_rate": 0.2155
+      }
+    }
+  },
+  "elapsed_s": 31.0,
+  "generated_at": "2026-08-26 17:47:30"
+}

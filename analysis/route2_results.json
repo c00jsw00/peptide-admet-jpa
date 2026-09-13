@@ -1,0 +1,90 @@
+{
+  "route": 2,
+  "name": "Rank-Gaussian Target Transform",
+  "script": "round2_rank_gaussian.py",
+  "split": "common.split_smiles seed=42, unique-SMILES 70/10/20, honest train-fit quantile transform",
+  "results": {
+    "A_honest_rank_feature_ablation_seed42": {
+      "Morgan_r2_2048": {
+        "r2_rank": 0.6257,
+        "r2_logpapp": 0.415
+      },
+      "RDKit_Morgan_r2_2265": {
+        "r2_rank": 0.6776,
+        "r2_logpapp": 0.4369
+      },
+      "FULL_3033": {
+        "r2_rank": 0.672,
+        "r2_logpapp": 0.4312
+      },
+      "Morgan_MoLFormer_2816": {
+        "r2_rank": 0.6555,
+        "r2_logpapp": 0.4372
+      }
+    },
+    "B_multiseed_5seeds_FULL_3033": {
+      "seeds": [
+        42,
+        123,
+        456,
+        789,
+        1024
+      ],
+      "r2_rank": [
+        0.672,
+        0.6581,
+        0.6747,
+        0.6882,
+        0.68
+      ],
+      "r2_logpapp": [
+        0.4312,
+        0.4455,
+        0.4391,
+        0.4381,
+        0.429
+      ],
+      "mean_r2_rank": 0.6746,
+      "std_r2_rank": 0.0099,
+      "mean_r2_logpapp": 0.4366,
+      "std_r2_logpapp": 0.0059
+    },
+    "C_ensemble_5seed": {
+      "r2_rank": 0.6906,
+      "r2_logpapp": 0.4469
+    },
+    "D_arch_ablation_seed42": {
+      "256_128": {
+        "r2_rank": 0.672,
+        "r2_logpapp": 0.4312
+      },
+      "512_256": {
+        "r2_rank": 0.6729,
+        "r2_logpapp": 0.4398
+      },
+      "512_256_128": {
+        "r2_rank": 0.6668,
+        "r2_logpapp": 0.4189
+      },
+      "768_384_192": {
+        "r2_rank": 0.6812,
+        "r2_logpapp": 0.4433
+      }
+    },
+    "E_loss_ablation_seed42": {
+      "huber": {
+        "r2_rank": 0.672,
+        "r2_logpapp": 0.4312
+      },
+      "mse": {
+        "r2_rank": 0.6617,
+        "r2_logpapp": 0.4412
+      }
+    }
+  },
+  "best_honest": {
+    "config": "5-seed ensemble FULL 3033 (256,128), rank-gauss, Huber",
+    "r2_logpapp": 0.4469
+  },
+  "conclusion": "Best honest R2_logPapp = 0.4469 (ensemble). All honest rank-gauss results BELOW v4.2 baseline (0.4642). Target 0.70 NOT reached."
+}

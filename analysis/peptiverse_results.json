@@ -1,0 +1,282 @@
+{
+  "source": "ChatterjeeLab/PeptiVerse_data",
+  "run": "2026-08-28 05:19:10",
+  "endpoints": {
+    "PAMPA_MDCK": {
+      "n": 6869,
+      "floor_rows": 240,
+      "floor_ss_share": 49.9,
+      "oracle_ceiling_r2": 0.5014,
+      "their_train_floor_pct": 2.9,
+      "their_val_floor_pct": 5.3,
+      "our_split": {
+        "E1_chem": {
+          "r2_mean": 0.3892,
+          "r2_std": 0.0135,
+          "r2_nonfloor_mean": 0.5504,
+          "spearman_mean": 0.749,
+          "spearman_std": 0.0055,
+          "per_seed": [
+            {
+              "r2_all": 0.3796,
+              "r2_nonfloor": 0.542,
+              "spearman_all": 0.7475,
+              "spearman_nonfloor": 0.7406,
+              "rmse": 0.8485,
+              "mae": 0.4788,
+              "seconds": 7.5
+            },
+            {
+              "r2_all": 0.4046,
+              "r2_nonfloor": 0.5673,
+              "spearman_all": 0.7551,
+              "spearman_nonfloor": 0.7512,
+              "rmse": 0.8312,
+              "mae": 0.4672,
+              "seconds": 11.5
+            },
+            {
+              "r2_all": 0.3833,
+              "r2_nonfloor": 0.5418,
+              "spearman_all": 0.7445,
+              "spearman_nonfloor": 0.7382,
+              "rmse": 0.846,
+              "mae": 0.4797,
+              "seconds": 9.9
+            }
+          ]
+        },
+        "E2_chem_2d": {
+          "r2_mean": 0.4343,
+          "r2_std": 0.003,
+          "r2_nonfloor_mean": 0.6031,
+          "spearman_mean": 0.7696,
+          "spearman_std": 0.0059,
+          "per_seed": [
+            {
+              "r2_all": 0.4312,
+              "r2_nonfloor": 0.6052,
+              "spearman_all": 0.7681,
+              "spearman_nonfloor": 0.7641,
+              "rmse": 0.8125,
+              "mae": 0.4514,
+              "seconds": 37.4
+            },
+            {
+              "r2_all": 0.4344,
+              "r2_nonfloor": 0.5935,
+              "spearman_all": 0.7645,
+              "spearman_nonfloor": 0.7586,
+              "rmse": 0.8102,
+              "mae": 0.4549,
+              "seconds": 10.4
+            },
+            {
+              "r2_all": 0.4372,
+              "r2_nonfloor": 0.6105,
+              "spearman_all": 0.7761,
+              "spearman_nonfloor": 0.7726,
+              "rmse": 0.8082,
+              "mae": 0.4463,
+              "seconds": 30.0
+            }
+          ]
+        },
+        "E3_2d": {
+          "r2_mean": 0.4209,
+          "r2_std": 0.0101,
+          "r2_nonfloor_mean": 0.594,
+          "spearman_mean": 0.7631,
+          "spearman_std": 0.0074,
+          "per_seed": [
+            {
+              "r2_all": 0.4178,
+              "r2_nonfloor": 0.5926,
+              "spearman_all": 0.7587,
+              "spearman_nonfloor": 0.7528,
+              "rmse": 0.822,
+              "mae": 0.4577,
+              "seconds": 15.0
+            },
+            {
+              "r2_all": 0.4127,
+              "r2_nonfloor": 0.5844,
+              "spearman_all": 0.7589,
+              "spearman_nonfloor": 0.7538,
+              "rmse": 0.8256,
+              "mae": 0.4578,
+              "seconds": 12.7
+            },
+            {
+              "r2_all": 0.4321,
+              "r2_nonfloor": 0.6049,
+              "spearman_all": 0.7717,
+              "spearman_nonfloor": 0.7666,
+              "rmse": 0.8118,
+              "mae": 0.4514,
+              "seconds": 24.2
+            }
+          ]
+        }
+      },
+      "their_split": {
+        "E1_chem": {
+          "r2_all": 0.1477,
+          "r2_nonfloor": 0.3156,
+          "spearman_all": 0.633,
+          "spearman_nonfloor": 0.6428,
+          "rmse": 1.0242,
+          "mae": 0.517,
+          "n_val": 1682
+        },
+        "E2_chem_2d": {
+          "r2_all": 0.1505,
+          "r2_nonfloor": 0.3676,
+          "spearman_all": 0.6451,
+          "spearman_nonfloor": 0.6529,
+          "rmse": 1.0225,
+          "mae": 0.5032,
+          "n_val": 1682
+        }
+      }
+    },
+    "Caco2": {
+      "n": 606,
+      "floor_rows": 15,
+      "floor_ss_share": 45.4,
+      "oracle_ceiling_r2": 0.5459,
+      "their_train_floor_pct": 1.2,
+      "their_val_floor_pct": 7.4,
+      "our_split": {
+        "E1_chem": {
+          "r2_mean": 0.1873,
+          "r2_std": 0.2478,
+          "r2_nonfloor_mean": 0.027,
+          "spearman_mean": 0.5252,
+          "spearman_std": 0.1351,
+          "per_seed": [
+            {
+              "r2_all": 0.3166,
+              "r2_nonfloor": 0.1407,
+              "spearman_all": 0.5694,
+              "spearman_nonfloor": 0.5433,
+              "rmse": 0.8204,
+              "mae": 0.5089,
+              "seconds": 0.8
+            },
+            {
+              "r2_all": -0.0984,
+              "r2_nonfloor": -0.2614,
+              "spearman_all": 0.3735,
+              "spearman_nonfloor": 0.3604,
+              "rmse": 1.0401,
+              "mae": 0.604,
+              "seconds": 0.5
+            },
+            {
+              "r2_all": 0.3438,
+              "r2_nonfloor": 0.2017,
+              "spearman_all": 0.6327,
+              "spearman_nonfloor": 0.6329,
+              "rmse": 0.804,
+              "mae": 0.4834,
+              "seconds": 0.8
+            }
+          ]
+        },
+        "E2_chem_2d": {
+          "r2_mean": 0.4302,
+          "r2_std": 0.0919,
+          "r2_nonfloor_mean": 0.3304,
+          "spearman_mean": 0.6025,
+          "spearman_std": 0.1188,
+          "per_seed": [
+            {
+              "r2_all": 0.4777,
+              "r2_nonfloor": 0.4383,
+              "spearman_all": 0.6648,
+              "spearman_nonfloor": 0.6547,
+              "rmse": 0.7173,
+              "mae": 0.4297,
+              "seconds": 1.4
+            },
+            {
+              "r2_all": 0.4886,
+              "r2_nonfloor": 0.4807,
+              "spearman_all": 0.6771,
+              "spearman_nonfloor": 0.6804,
+              "rmse": 0.7097,
+              "mae": 0.414,
+              "seconds": 1.7
+            },
+            {
+              "r2_all": 0.3243,
+              "r2_nonfloor": 0.0723,
+              "spearman_all": 0.4655,
+              "spearman_nonfloor": 0.4384,
+              "rmse": 0.8158,
+              "mae": 0.5529,
+              "seconds": 0.8
+            }
+          ]
+        },
+        "E3_2d": {
+          "r2_mean": 0.2321,
+          "r2_std": 0.1589,
+          "r2_nonfloor_mean": 0.0045,
+          "spearman_mean": 0.5454,
+          "spearman_std": 0.1205,
+          "per_seed": [
+            {
+              "r2_all": 0.1545,
+              "r2_nonfloor": -0.0105,
+              "spearman_all": 0.4883,
+              "spearman_nonfloor": 0.4751,
+              "rmse": 0.9126,
+              "mae": 0.5575,
+              "seconds": 0.6
+            },
+            {
+              "r2_all": 0.1269,
+              "r2_nonfloor": -0.3031,
+              "spearman_all": 0.4641,
+              "spearman_nonfloor": 0.4142,
+              "rmse": 0.9273,
+              "mae": 0.6356,
+              "seconds": 0.6
+            },
+            {
+              "r2_all": 0.4149,
+              "r2_nonfloor": 0.327,
+              "spearman_all": 0.6838,
+              "spearman_nonfloor": 0.6551,
+              "rmse": 0.7591,
+              "mae": 0.5053,
+              "seconds": 1.1
+            }
+          ]
+        }
+      },
+      "their_split": {
+        "E1_chem": {
+          "r2_all": 0.2668,
+          "r2_nonfloor": 0.503,
+          "spearman_all": 0.7275,
+          "spearman_nonfloor": 0.6998,
+          "rmse": 1.2772,
+          "mae": 0.7262,
+          "n_val": 122
+        },
+        "E2_chem_2d": {
+          "r2_all": 0.2673,
+          "r2_nonfloor": 0.4774,
+          "spearman_all": 0.7114,
+          "spearman_nonfloor": 0.6737,
+          "rmse": 1.2767,
+          "mae": 0.7742,
+          "n_val": 122
+        }
+      }
+    }
+  }
+}

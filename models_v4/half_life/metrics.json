@@ -1,0 +1,121 @@
+{
+  "endpoint": "Half_life",
+  "kind": "regression",
+  "modality": "sequence",
+  "model": "MixedADMETMLP (single head, per-endpoint)",
+  "n_params": 438529,
+  "input_dim": 1580,
+  "trunk_hidden": [
+    256,
+    128
+  ],
+  "regression_loss": "huber",
+  "feature_layout": "428-dim classical (20 AAC + 400 DPC + 8 physchem) + 1152-dim frozen ESMC-600M embedding = 1580",
+  "esmc": {
+    "model": "biohub/ESMC-600M",
+    "embedding_dim": 1152,
+    "aggregation": "mean-pooled token states",
+    "frozen": true,
+    "cache": "data/esmc/esmc_emb_half_life.npz"
+  },
+  "molformer": null,
+  "target_aggregation": {
+    "method": "exact-duplicate sequences collapsed to one row; target = mean of the sequences repeat measurements in model space (log10 s for Half_life)",
+    "n_rows_before": 1763,
+    "n_rows_after": 768,
+    "n_duplicate_keys": 995,
+    "max_repeats": 82
+  },
+  "target_transform": "log10",
+  "raw_units": "seconds",
+  "data_source": "Chemit797/PepADMET-Dataset (real experimental data)",
+  "n_samples": 768,
+  "binary_pos_weight": null,
+  "training": {
+    "epochs_max": 80,
+    "early_stopping": "val loss, patience 10",
+    "seed": 42,
+    "optimizer": "Adam lr=1e-3 wd=1e-5",
+    "scheduler": "ReduceLROnPlateau factor 0.5 patience 4"
+  },
+  "splits": {
+    "primary": {
+      "audit": {
+        "method": "rows collapsed by canonical 3-mer-multiset signature (jaccard-1.0 anagrams merged to one family), then greedy single-linkage 3-mer Jaccard clustering (threshold), family-level split (AMPBench-MT-style homology control, arXiv:2607.25518)",
+        "threshold": 0.35,
+        "n_unique_signatures": 768,
+        "n_families": 294,
+        "max_train_test_kmer_jaccard_audited": 0.9737,
+        "exact_multiset_leakage": "guaranteed 0 (signature collapse)",
+        "counts": {
+          "train": 533,
+          "val": 76,
+          "test": 159
+        }
+      },
+      "test": {
+        "kind": "regression",
+        "modality": "sequence",
+        "n": 159,
+        "r2": 0.7259,
+        "rmse": 1.3651,
+        "mae": 0.8866,
+        "target_units": "log10(seconds)",
+        "y_range": [
+          -2.9586,
+          5.0449
+        ],
+        "pred_range": [
+          -2.8749,
+          5.035
+        ]
+      },
+      "val": {
+        "kind": "regression",
+        "modality": "sequence",
+        "n": 76,
+        "r2": 0.7853,
+        "rmse": 1.2394,
+        "mae": 0.8007,
+        "target_units": "log10(seconds)",
+        "y_range": [
+          -2.6778,
+          5.3071
+        ],
+        "pred_range": [
+          -2.9772,
+          4.876
+        ]
+      }
+    },
+    "comparison": {
+      "audit": {
+        "method": "random 70/10/20 (comparison only — inflated by near-duplicate leakage)",
+        "counts": {
+          "train": 537,
+          "val": 76,
+          "test": 155
+        }
+      },
+      "test": {
+        "kind": "regression",
+        "modality": "sequence",
+        "n": 155,
+        "r2": 0.7867,
+        "rmse": 1.1932,
+        "mae": 0.8359,
+        "target_units": "log10(seconds)",
+        "y_range": [
+          -2.9586,
+          5.4594
+        ],
+        "pred_range": [
+          -2.8708,
+          4.8585
+        ]
+      }
+    }
+  },
+  "elapsed_s": 2.2,
+  "generated_at": "2026-08-26 17:47:33"
+}

@@ -1,0 +1,23 @@
+
+=== PAMPA_MDCK  rows=7283  unique_SMILES=7177 X=(7283, 3033) ===
+  split: tr=5102 va=724 te=1457
+  [PAMPA_MDCK] params=810,497 device=cpu input_dim=3033 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 3.7908  val 1.7274
+  [PAMPA_MDCK] epoch  10  train 0.3338  val 0.2428
+  [PAMPA_MDCK] epoch  20  train 0.2905  val 0.2313
+  [PAMPA_MDCK] epoch  30  train 0.2591  val 0.2162
+  [PAMPA_MDCK] epoch  40  train 0.2437  val 0.2189
+  [PAMPA_MDCK] early stop @ epoch 49 (val 0.2152)
+Traceback (most recent call last):
+  File "C:\Users\c00jsw00\openclaw-peptide-admet\analysis\label_avg_experiment.py", line 183, in <module>
+    main()
+  File "C:\Users\c00jsw00\openclaw-peptide-admet\analysis\label_avg_experiment.py", line 108, in main
+    a[seed] = run(cfg['name'], X, y, tr, va, te, seed)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\c00jsw00\openclaw-peptide-admet\analysis\label_avg_experiment.py", line 72, in run
+    return metrics(y[te], p)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\c00jsw00\openclaw-peptide-admet\analysis\label_avg_experiment.py", line 60, in metrics
+    mae=round(float(np.mean(np.abs(y_true - pred)), 4)),
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float expected at most 1 argument, got 2

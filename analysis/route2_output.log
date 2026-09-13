@@ -1,0 +1,76 @@
+Device: cuda
+PAMPA: N=7283
+Split: train=5102, val=724, test=1457
+
+Honest rank mapping (fit on train only):
+  train y:   [-10.000, -3.900]
+  test  y:   [-10.000, -4.000]
+  test rank: mean=0.020 std=0.965
+  (sanity) R2 of [train-quantile(map(test y)) vs true test y] = 0.9927  <- the best a perfect rank-model could do in logPapp space
+
+=== Features ===
+  loaded from cache _pampa_feat_cache.npz (0.1s)
+  Feature extraction total: 0s
+
+======================================================================
+A. HONEST rank-gauss (train-fit transform) — feature ablation, seed 42
+   R2_rank = rank space | R2_logpapp = original units (inverse-mapped)
+======================================================================
+  Morgan r=2 only (2048)                    R2_rank=0.6257  R2_logpapp=0.4150  (3s)
+  RDKit + Morgan r=2 (2265)                 R2_rank=0.6776  R2_logpapp=0.4369  (2s)
+  FULL: RDKit + Morgan + MoLFormer (3033)   R2_rank=0.6720  R2_logpapp=0.4312  (1s)
+  Morgan + MoLFormer (2816)                 R2_rank=0.6555  R2_logpapp=0.4372  (1s)
+
+======================================================================
+B. Multi-seed stability (FULL features, (256,128), rank-gauss, Huber)
+======================================================================
+  seed    42  R2_rank=0.6720  R2_logpapp=0.4312  (1s)
+  seed   123  R2_rank=0.6581  R2_logpapp=0.4455  (1s)
+  seed   456  R2_rank=0.6747  R2_logpapp=0.4391  (1s)
+  seed   789  R2_rank=0.6882  R2_logpapp=0.4381  (1s)
+  seed  1024  R2_rank=0.6800  R2_logpapp=0.4290  (1s)
+  mean: R2_rank=0.6746±0.0099   R2_logpapp=0.4366±0.0059
+
+======================================================================
+C. 5-seed ENSEMBLE (average in rank space, inverse-map to logPapp)
+======================================================================
+  R2_rank=0.6906  R2_logpapp=0.4469
+
+======================================================================
+D. Architecture ablation in RANK space (FULL features, seed 42)
+======================================================================
+  (256,128)             R2_rank=0.6720  R2_logpapp=0.4312  (1s)
+  (512,256)             R2_rank=0.6729  R2_logpapp=0.4398  (1s)
+  (512,256,128)         R2_rank=0.6668  R2_logpapp=0.4189  (1s)
+  (768,384,192)         R2_rank=0.6812  R2_logpapp=0.4433  (2s)
+
+======================================================================
+E. Loss ablation in RANK space (FULL features, (256,128), seed 42)
+======================================================================
+  huber       R2_rank=0.6720  R2_logpapp=0.4312  (1s)
+  mse         R2_rank=0.6617  R2_logpapp=0.4412  (2s)
+
+======================================================================
+SUMMARY (test split; R2_logpapp = original units)
+======================================================================
+  v4.2 committed (identity target): R2_logpapp = 0.4642
+  Round-1 (LEAKY full-data rank, seed42): R2_rank = 0.6638 (not comparable)
+
+  R2_logpapp=0.4469  C ensemble 5-seed  FULL 3033 (256,128)
+  R2_logpapp=0.4455  B seed  123  FULL 3033 (256,128)
+  R2_logpapp=0.4433  D (768,384,192)  FULL 3033 rank
+  R2_logpapp=0.4412  E mse  FULL 3033 rank
+  R2_logpapp=0.4398  D (512,256)  FULL 3033 rank
+  R2_logpapp=0.4391  B seed  456  FULL 3033 (256,128)
+  R2_logpapp=0.4381  B seed  789  FULL 3033 (256,128)
+  R2_logpapp=0.4372  A seed42  Morgan + MoLFormer (2816)
+  R2_logpapp=0.4369  A seed42  RDKit + Morgan r=2 (2265)
+  R2_logpapp=0.4312  A seed42  FULL: RDKit + Morgan + MoLFormer (3033)
+  R2_logpapp=0.4312  B seed   42  FULL 3033 (256,128)
+  R2_logpapp=0.4312  D (256,128)  FULL 3033 rank
+  R2_logpapp=0.4312  E huber  FULL 3033 rank
+  R2_logpapp=0.4290  B seed 1024  FULL 3033 (256,128)
+  R2_logpapp=0.4189  D (512,256,128)  FULL 3033 rank
+  R2_logpapp=0.4150  A seed42  Morgan r=2 only (2048)
+
+  Target R2_logpapp >= 0.70: NOT reached

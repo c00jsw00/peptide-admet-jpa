@@ -1,0 +1,89 @@
+=== KPGT best per-seed ===
+  seed 7: best_epoch=13 val_r2=0.4080 r2_all=0.5139 r2_nf=0.5035 spearman=0.8041 mae=0.4777 rmse=0.7611
+  seed 42: best_epoch=16 val_r2=0.4059 r2_all=0.5191 r2_nf=0.5633 spearman=0.8257 mae=0.4424 rmse=0.7571
+  seed 123: best_epoch=9 val_r2=0.4105 r2_all=0.5073 r2_nf=0.5404 spearman=0.8023 mae=0.4773 rmse=0.7663
+  mean r2_all=0.5134 sd=0.0059 | mean r2_nf=0.5357 | spearman 42=0.826
+
+=== TABPFN full JSON ===
+{
+ "device": "cuda",
+ "split": "common.split_smiles seed=42",
+ "n_train": 5102,
+ "n_val": 724,
+ "n_test": 1457,
+ "baseline_lightgbm": {
+  "r2_all": 0.4642,
+  "r2_nonfloor": 0.6317
+ },
+ "results": {
+  "desc": {
+   "r2_all": 0.4962,
+   "r2_all_std": 0.0016,
+   "r2_nonfloor": 0.6268,
+   "spearman": 0.7976,
+   "mae": 0.4509,
+   "seeds": {
+    "42": 0.494,
+    "123": 0.4972,
+    "7": 0.4973
+   }
+  },
+  "desc+morgan": {
+   "r2_all": 0.4813,
+   "r2_all_std": 0.003,
+   "r2_nonfloor": 0.5866,
+   "spearman": 0.7873,
+   "mae": 0.4695,
+   "seeds": {
+    "42": 0.4777,
+    "123": 0.481,
+    "7": 0.4851
+   }
+  },
+  "desc+morgan+molf": {
+   "r2_all": 0.482,
+   "r2_all_std": 0.0068,
+   "r2_nonfloor": 0.628,
+   "spearman": 0.7994,
+   "mae": 0.4538,
+   "seeds": {
+    "42": 0.4767,
+    "123": 0.4778,
+    "7": 0.4916
+   }
+  }
+ }
+}
+
+=== non-floor search in analysis logs/md ===
+analysis/chemberta_results.json:20:      "test_r2_nonfloor": 0.6317,
+analysis/chemberta_results.json:30:      "test_r2_nonfloor": 0.624,
+analysis/chemberta_results.json:40:      "test_r2_nonfloor": 0.6118,
+analysis/chemberta_results.json:50:      "test_r2_nonfloor": 0.6297,
+analysis/chemberta_results.json:60:      "test_r2_nonfloor": 0.6041,
+analysis/chemberta_results.json:70:      "test_r2_nonfloor": 0.6547,
+analysis/chemberta_results.json:80:      "test_r2_nonfloor": 0.6411,
+analysis/chemberta_results.json:90:      "test_r2_nonfloor": 0.6383,
+analysis/chemberta_results.json:100:      "test_r2_nonfloor": 0.6195,
+analysis/chemberta_results.json:110:      "test_r2_nonfloor": 0.5026,
+analysis/chemberta_results.json:120:      "test_r2_nonfloor": 0.502,
+analysis/chemberta_results.json:130:      "test_r2_nonfloor": 0.4606,
+analysis/chemberta_results_caco2.json:21:      "test_r2_nonfloor": 0.5406,
+analysis/chemberta_results_caco2.json:31:      "test_r2_nonfloor": 0.5355,
+analysis/chemberta_results_caco2.json:41:      "test_r2_nonfloor": 0.554,
+analysis/chemberta_results_caco2.json:51:      "test_r2_nonfloor": 0.5311,
+analysis/chemberta_results_caco2.json:61:      "test_r2_nonfloor": 0.5325,
+analysis/chemberta_results_caco2.json:71:      "test_r2_nonfloor": 0.5475,
+analysis/chemberta_results_caco2.json:81:      "test_r2_nonfloor": 0.5347,
+analysis/chemberta_results_caco2.json:91:      "test_r2_nonfloor": 0.543,
+analysis/chemberta_results_caco2.json:101:      "test_r2_nonfloor": 0.5247,
+analysis/chemberta_results_caco2.json:111:      "test_r2_nonfloor": 0.2946,
+analysis/chemberta_results_caco2.json:121:      "test_r2_nonfloor": 0.3359,
+analysis/chemberta_results_caco2.json:131:      "test_r2_nonfloor": 0.3268,
+analysis/chemberta_retrain.py:30:Reported per run: test R2 (overall), R2 on the non-floor subset (the fair
+analysis/chemberta_retrain.py:198:                   'test_r2': round(r2_all, 4), 'test_r2_nonfloor': round(r2_nf, 4),
+analysis/chemberta_retrain.py:204:                  f'non-floor R2={r2_nf:.4f}  RMSE={rec["rmse"]}  '
+analysis/floor_predictability.py:9:  * current v4.2 MLP: overall R2=0.4642, non-floor R2=0.6317
+analysis/floor_predictability.py:13:  * perfect non-floor + floor->mean -> only 0.5387
+analysis/floor_predictability.py:121:print(f'    pred range: floor {fp_.min():.2f}..{fp_.max():.2f} (median {np.median(fp_):.2f})  |  non-floor {nf_p.min():.2f}..{nf_p.max():.2f}')
+analysis/floor_predictability.py:165:#    stage-2 = current v4.2 MLP predict

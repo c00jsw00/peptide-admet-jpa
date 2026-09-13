@@ -1,0 +1,110 @@
+N=7283  train=5102  val=724  test=1457  test floor rows=47
+  NOTE: 2 desc cols differ at float noise level: ['AvgIpc', 'Ipc'] (Ipc ~1e23, rel ~1e-2; negligible after scaling)
+feature cache loaded + verified: (7283, 2265) in 1s
+  [PAMPA_MDCK] params=810,497 device=cpu input_dim=3033 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 3.7908  val 1.7274
+  [PAMPA_MDCK] epoch  10  train 0.3338  val 0.2428
+  [PAMPA_MDCK] epoch  20  train 0.2905  val 0.2313
+  [PAMPA_MDCK] epoch  30  train 0.2591  val 0.2162
+  [PAMPA_MDCK] epoch  40  train 0.2437  val 0.2189
+  [PAMPA_MDCK] early stop @ epoch 49 (val 0.2152)
+A_mol_molf  seed=42:  test R2=0.4642  non-floor R2=0.6317  RMSE=0.7991  MAE=0.45  (12.0s)
+  [PAMPA_MDCK] params=810,497 device=cpu input_dim=3033 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 3.7958  val 1.7924
+  [PAMPA_MDCK] epoch  10  train 0.3276  val 0.2435
+  [PAMPA_MDCK] epoch  20  train 0.2859  val 0.2314
+  [PAMPA_MDCK] epoch  30  train 0.2586  val 0.2236
+  [PAMPA_MDCK] early stop @ epoch 36 (val 0.2161)
+A_mol_molf  seed=123:  test R2=0.4517  non-floor R2=0.6240  RMSE=0.8084  MAE=0.4535  (5.1s)
+  [PAMPA_MDCK] params=810,497 device=cpu input_dim=3033 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 3.9783  val 2.0556
+  [PAMPA_MDCK] epoch  10  train 0.3483  val 0.2665
+  [PAMPA_MDCK] epoch  20  train 0.2881  val 0.2255
+  [PAMPA_MDCK] epoch  30  train 0.2667  val 0.2157
+  [PAMPA_MDCK] epoch  40  train 0.2460  val 0.2226
+  [PAMPA_MDCK] epoch  50  train 0.2383  val 0.2147
+  [PAMPA_MDCK] early stop @ epoch 53 (val 0.2127)
+A_mol_molf  seed=7:  test R2=0.4584  non-floor R2=0.6118  RMSE=0.8034  MAE=0.4557  (19.1s)
+  [PAMPA_MDCK] params=712,193 device=cpu input_dim=2649 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 4.1001  val 2.1695
+  [PAMPA_MDCK] epoch  10  train 0.3463  val 0.2392
+  [PAMPA_MDCK] epoch  20  train 0.3005  val 0.2402
+  [PAMPA_MDCK] epoch  30  train 0.2759  val 0.2162
+  [PAMPA_MDCK] epoch  40  train 0.2733  val 0.2270
+  [PAMPA_MDCK] early stop @ epoch 46 (val 0.2136)
+B_mol_chem  seed=42:  test R2=0.4423  non-floor R2=0.6297  RMSE=0.8153  MAE=0.4526  (11.8s)
+  [PAMPA_MDCK] params=712,193 device=cpu input_dim=2649 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 3.5884  val 1.4814
+  [PAMPA_MDCK] epoch  10  train 0.3646  val 0.2606
+  [PAMPA_MDCK] epoch  20  train 0.3099  val 0.2327
+  [PAMPA_MDCK] epoch  30  train 0.2770  val 0.2205
+  [PAMPA_MDCK] epoch  40  train 0.2725  val 0.2151
+  [PAMPA_MDCK] early stop @ epoch 47 (val 0.2100)
+B_mol_chem  seed=123:  test R2=0.4354  non-floor R2=0.6041  RMSE=0.8203  MAE=0.4559  (12.9s)
+  [PAMPA_MDCK] params=712,193 device=cpu input_dim=2649 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 4.2551  val 2.4205
+  [PAMPA_MDCK] epoch  10  train 0.3686  val 0.2530
+  [PAMPA_MDCK] epoch  20  train 0.3085  val 0.2296
+  [PAMPA_MDCK] epoch  30  train 0.2836  val 0.2256
+  [PAMPA_MDCK] epoch  40  train 0.2652  val 0.2144
+  [PAMPA_MDCK] epoch  50  train 0.2651  val 0.2139
+  [PAMPA_MDCK] epoch  60  train 0.2607  val 0.2109
+  [PAMPA_MDCK] epoch  70  train 0.2640  val 0.2130
+  [PAMPA_MDCK] early stop @ epoch 78 (val 0.2095)
+B_mol_chem  seed=7:  test R2=0.4706  non-floor R2=0.6547  RMSE=0.7943  MAE=0.4427  (27.7s)
+  [PAMPA_MDCK] params=908,801 device=cpu input_dim=3417 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 4.2818  val 2.3359
+  [PAMPA_MDCK] epoch  10  train 0.3404  val 0.2545
+  [PAMPA_MDCK] epoch  20  train 0.2794  val 0.2242
+  [PAMPA_MDCK] epoch  30  train 0.2530  val 0.2123
+  [PAMPA_MDCK] early stop @ epoch 40 (val 0.2123)
+C_mol_molf_chem  seed=42:  test R2=0.4660  non-floor R2=0.6411  RMSE=0.7977  MAE=0.4519  (6.6s)
+  [PAMPA_MDCK] params=908,801 device=cpu input_dim=3417 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 4.0056  val 2.0564
+  [PAMPA_MDCK] epoch  10  train 0.3415  val 0.2463
+  [PAMPA_MDCK] epoch  20  train 0.2917  val 0.2278
+  [PAMPA_MDCK] epoch  30  train 0.2592  val 0.2091
+  [PAMPA_MDCK] early stop @ epoch 40 (val 0.2091)
+C_mol_molf_chem  seed=123:  test R2=0.4529  non-floor R2=0.6383  RMSE=0.8075  MAE=0.4515  (7.3s)
+  [PAMPA_MDCK] params=908,801 device=cpu input_dim=3417 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 4.1363  val 2.2549
+  [PAMPA_MDCK] epoch  10  train 0.3449  val 0.2560
+  [PAMPA_MDCK] epoch  20  train 0.2916  val 0.2161
+  [PAMPA_MDCK] epoch  30  train 0.2645  val 0.2184
+  [PAMPA_MDCK] epoch  40  train 0.2417  val 0.2132
+  [PAMPA_MDCK] epoch  50  train 0.2310  val 0.2146
+  [PAMPA_MDCK] early stop @ epoch 52 (val 0.2091)
+C_mol_molf_chem  seed=7:  test R2=0.4682  non-floor R2=0.6195  RMSE=0.7961  MAE=0.4522  (19.9s)
+  [PAMPA_MDCK] params=132,353 device=cpu input_dim=384 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 3.5802  val 1.5752
+  [PAMPA_MDCK] epoch  10  train 0.4209  val 0.2878
+  [PAMPA_MDCK] epoch  20  train 0.3835  val 0.3023
+  [PAMPA_MDCK] epoch  30  train 0.3545  val 0.2636
+  [PAMPA_MDCK] epoch  40  train 0.3321  val 0.2528
+  [PAMPA_MDCK] epoch  50  train 0.3306  val 0.2547
+  [PAMPA_MDCK] epoch  60  train 0.3225  val 0.2475
+  [PAMPA_MDCK] epoch  70  train 0.3252  val 0.2468
+  [PAMPA_MDCK] epoch  80  train 0.3196  val 0.2465
+D_chem  seed=42:  test R2=0.3535  non-floor R2=0.5026  RMSE=0.8778  MAE=0.5114  (6.9s)
+  [PAMPA_MDCK] params=132,353 device=cpu input_dim=384 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 4.2358  val 2.4895
+  [PAMPA_MDCK] epoch  10  train 0.4360  val 0.3020
+  [PAMPA_MDCK] epoch  20  train 0.3868  val 0.2693
+  [PAMPA_MDCK] epoch  30  train 0.3661  val 0.2593
+  [PAMPA_MDCK] epoch  40  train 0.3499  val 0.2652
+  [PAMPA_MDCK] epoch  50  train 0.3354  val 0.2597
+  [PAMPA_MDCK] epoch  60  train 0.3272  val 0.2474
+  [PAMPA_MDCK] epoch  70  train 0.3195  val 0.2476
+  [PAMPA_MDCK] epoch  80  train 0.3164  val 0.2473
+D_chem  seed=123:  test R2=0.3547  non-floor R2=0.5020  RMSE=0.877  MAE=0.5104  (6.7s)
+  [PAMPA_MDCK] params=132,353 device=cpu input_dim=384 hidden=(256, 128)
+  [PAMPA_MDCK] epoch   1  train 3.4491  val 1.3661
+  [PAMPA_MDCK] epoch  10  train 0.4399  val 0.2877
+  [PAMPA_MDCK] epoch  20  train 0.3851  val 0.2689
+  [PAMPA_MDCK] epoch  30  train 0.3710  val 0.2767
+  [PAMPA_MDCK] epoch  40  train 0.3444  val 0.2565
+  [PAMPA_MDCK] early stop @ epoch 44 (val 0.2557)
+D_chem  seed=7:  test R2=0.3101  non-floor R2=0.4606  RMSE=0.9068  MAE=0.5228  (4.1s)
+
+Wrote analysis/chemberta_results.json
+Done.
