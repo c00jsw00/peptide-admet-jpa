@@ -1,3 +1,0 @@
-[1] Hornsby JCR -> 2026 | Therapeutic peptides and proteins: Status and developments in drug delivery | Hornsby; Lee; Steele; Tuekpe; Lim | Journal of Controlled Release
-[2] pepADMET JCIM 5c02518 -> 2026 | pepADMET: A Novel Computational Platform For Systematic ADMET Evaluation of Peptides | Tan; Liu; Zhou; Fang; Ouyang | Journal of Chemical Information and Modeling
-[7] cyclic 2512.06971 (confirm broken) -> 2025 | Prediction with Expert Advice under Local Differential Privacy | Jacobsen; Fawaz | ?
