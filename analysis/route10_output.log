@@ -1,0 +1,53 @@
+cuda check via torch...
+cuda: True NVIDIA GeForce RTX 4070 SUPER
+rows=7429 train/val/test=5197/742/1490 test floor rows=39 (split seed 42, identical to committed baseline)
+baseline (committed v4.2 caco2 MLP): R2_all=0.3933 R2_nonfloor=0.5152
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\tabpfn\preprocessing\ensemble.py:219: UserWarning: Feature subsampling is active, but at least one preprocessing pipeline uses data dependent feature exampnsion (for example one-hot encoding). The subsampling budget is computed without accounting for the additional columns created by this expansion (which depends on training data cardinality). The actual number of features per estimator may exceed `max_features_per_estimator` for those pipelines.
+  self.subsample_feature_indices = _get_subsample_feature_indices(
+  desc seed=42: R2_all=0.4378 R2_nf=0.6134 sp=0.7505 mae=0.4291
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\tabpfn\preprocessing\ensemble.py:219: UserWarning: Feature subsampling is active, but at least one preprocessing pipeline uses data dependent feature exampnsion (for example one-hot encoding). The subsampling budget is computed without accounting for the additional columns created by this expansion (which depends on training data cardinality). The actual number of features per estimator may exceed `max_features_per_estimator` for those pipelines.
+  self.subsample_feature_indices = _get_subsample_feature_indices(
+  desc seed=123: R2_all=0.4461 R2_nf=0.6066 sp=0.7496 mae=0.4270
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\tabpfn\preprocessing\ensemble.py:219: UserWarning: Feature subsampling is active, but at least one preprocessing pipeline uses data dependent feature exampnsion (for example one-hot encoding). The subsampling budget is computed without accounting for the additional columns created by this expansion (which depends on training data cardinality). The actual number of features per estimator may exceed `max_features_per_estimator` for those pipelines.
+  self.subsample_feature_indices = _get_subsample_feature_indices(
+  desc seed=7: R2_all=0.4407 R2_nf=0.6059 sp=0.7531 mae=0.4284
+desc: R2_all=0.4415+/-0.0034 R2_nf=0.6086 (547s)
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\tabpfn\regressor.py:909: UserWarning: n_estimators=4 covers at most 2000 of 2265 features (max_features_per_estimator=500); the remaining features are never sampled by any ensemble member. Pass n_estimators >= 5, or n_estimators="auto" to let TabPFN pick a covering value.
+  self.n_estimators_ = scale_n_estimators_for_feature_coverage(
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\tabpfn\preprocessing\ensemble.py:219: UserWarning: Feature subsampling is active, but at least one preprocessing pipeline uses data dependent feature exampnsion (for example one-hot encoding). The subsampling budget is computed without accounting for the additional columns created by this expansion (which depends on training data cardinality). The actual number of features per estimator may exceed `max_features_per_estimator` for those pipelines.
+  self.subsample_feature_indices = _get_subsample_feature_indices(
+  desc+morgan seed=42: R2_all=0.4288 R2_nf=0.5847 sp=0.7396 mae=0.4468
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\tabpfn\regressor.py:909: UserWarning: n_estimators=4 covers at most 2000 of 2265 features (max_features_per_estimator=500); the remaining features are never sampled by any ensemble member. Pass n_estimators >= 5, or n_estimators="auto" to let TabPFN pick a covering value.
+  self.n_estimators_ = scale_n_estimators_for_feature_coverage(
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\tabpfn\preprocessing\ensemble.py:219: UserWarning: Feature subsampling is active, but at least one preprocessing pipeline uses data dependent feature exampnsion (for example one-hot encoding). The subsampling budget is computed without accounting for the additional columns created by this expansion (which depends on training data cardinality). The actual number of features per estimator may exceed `max_features_per_estimator` for those pipelines.
+  self.subsample_feature_indices = _get_subsample_feature_indices(
+  desc+morgan seed=123: R2_all=0.4184 R2_nf=0.5699 sp=0.7310 mae=0.4518
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\tabpfn\regressor.py:909: UserWarning: n_estimators=4 covers at most 2000 of 2265 features (max_features_per_estimator=500); the remaining features are never sampled by any ensemble member. Pass n_estimators >= 5, or n_estimators="auto" to let TabPFN pick a covering value.
+  self.n_estimators_ = scale_n_estimators_for_feature_coverage(
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\tabpfn\preprocessing\ensemble.py:219: UserWarning: Feature subsampling is active, but at least one preprocessing pipeline uses data dependent feature exampnsion (for example one-hot encoding). The subsampling budget is computed without accounting for the additional columns created by this expansion (which depends on training data cardinality). The actual number of features per estimator may exceed `max_features_per_estimator` for those pipelines.
+  self.subsample_feature_indices = _get_subsample_feature_indices(
+  desc+morgan seed=7: R2_all=0.4349 R2_nf=0.5879 sp=0.7380 mae=0.4432
+desc+morgan: R2_all=0.4273+/-0.0068 R2_nf=0.5808 (233s)
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\tabpfn\regressor.py:909: UserWarning: n_estimators=4 covers at most 2000 of 3033 features (max_features_per_estimator=500); the remaining features are never sampled by any ensemble member. Pass n_estimators >= 7, or n_estimators="auto" to let TabPFN pick a covering value.
+  self.n_estimators_ = scale_n_estimators_for_feature_coverage(
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\tabpfn\preprocessing\ensemble.py:219: UserWarning: Feature subsampling is active, but at least one preprocessing pipeline uses data dependent feature exampnsion (for example one-hot encoding). The subsampling budget is computed without accounting for the additional columns created by this expansion (which depends on training data cardinality). The actual number of features per estimator may exceed `max_features_per_estimator` for those pipelines.
+  self.subsample_feature_indices = _get_subsample_feature_indices(
+  desc+morgan+molf seed=42: R2_all=0.4395 R2_nf=0.5896 sp=0.7501 mae=0.4414
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\tabpfn\regressor.py:909: UserWarning: n_estimators=4 covers at most 2000 of 3033 features (max_features_per_estimator=500); the remaining features are never sampled by any ensemble member. Pass n_estimators >= 7, or n_estimators="auto" to let TabPFN pick a covering value.
+  self.n_estimators_ = scale_n_estimators_for_feature_coverage(
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\tabpfn\preprocessing\ensemble.py:219: UserWarning: Feature subsampling is active, but at least one preprocessing pipeline uses data dependent feature exampnsion (for example one-hot encoding). The subsampling budget is computed without accounting for the additional columns created by this expansion (which depends on training data cardinality). The actual number of features per estimator may exceed `max_features_per_estimator` for those pipelines.
+  self.subsample_feature_indices = _get_subsample_feature_indices(
+  desc+morgan+molf seed=123: R2_all=0.4285 R2_nf=0.5768 sp=0.7430 mae=0.4467
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\tabpfn\regressor.py:909: UserWarning: n_estimators=4 covers at most 2000 of 3033 features (max_features_per_estimator=500); the remaining features are never sampled by any ensemble member. Pass n_estimators >= 7, or n_estimators="auto" to let TabPFN pick a covering value.
+  self.n_estimators_ = scale_n_estimators_for_feature_coverage(
+C:\Users\c00jsw00\openclaw-peptide-admet\.venv\Lib\site-packages\tabpfn\preprocessing\ensemble.py:219: UserWarning: Feature subsampling is active, but at least one preprocessing pipeline uses data dependent feature exampnsion (for example one-hot encoding). The subsampling budget is computed without accounting for the additional columns created by this expansion (which depends on training data cardinality). The actual number of features per estimator may exceed `max_features_per_estimator` for those pipelines.
+  self.subsample_feature_indices = _get_subsample_feature_indices(
+  desc+morgan+molf seed=7: R2_all=0.4371 R2_nf=0.5882 sp=0.7463 mae=0.4417
+desc+morgan+molf: R2_all=0.4350+/-0.0047 R2_nf=0.5849 (419s)
+
+Wrote analysis/route10_tabpfn_caco2.json
+=== SUMMARY (TabPFN v2, Caco-2, canonical split, 3 seeds) ===
+  desc                 R2_all=0.4415+/-0.0034 R2_nf=0.6086 vs baseline 0.3933 (delta +0.0482)
+  desc+morgan          R2_all=0.4273+/-0.0068 R2_nf=0.5808 vs baseline 0.3933 (delta +0.0340)
+  desc+morgan+molf     R2_all=0.4350+/-0.0047 R2_nf=0.5849 vs baseline 0.3933 (delta +0.0417)
+Done.

@@ -1,0 +1,53 @@
+{
+  "model": "TabPFN v2 (tabpfn 8.5.0, ModelVersion.V2, n_estimators=4, CUDA)",
+  "endpoint": "Caco2",
+  "split": "unique-SMILES 70/10/20 seed=42 (VERBATIM split_molecular; test n=1490, same as committed baseline)",
+  "n_rows": 7429,
+  "test_floor_rows": 39,
+  "baseline_v42_mlp": {
+    "r2_all": 0.3933,
+    "r2_nonfloor": 0.5152
+  },
+  "results": {
+    "desc": {
+      "r2_all": 0.4415,
+      "r2_all_std": 0.0034,
+      "r2_nonfloor": 0.6086,
+      "r2_nonfloor_std": 0.0034,
+      "spearman": 0.7511,
+      "mae": 0.4282,
+      "seeds": {
+        "42": 0.4378,
+        "123": 0.4461,
+        "7": 0.4407
+      }
+    },
+    "desc+morgan": {
+      "r2_all": 0.4273,
+      "r2_all_std": 0.0068,
+      "r2_nonfloor": 0.5808,
+      "r2_nonfloor_std": 0.0078,
+      "spearman": 0.7362,
+      "mae": 0.4473,
+      "seeds": {
+        "42": 0.4288,
+        "123": 0.4184,
+        "7": 0.4349
+      }
+    },
+    "desc+morgan+molf": {
+      "r2_all": 0.435,
+      "r2_all_std": 0.0047,
+      "r2_nonfloor": 0.5849,
+      "r2_nonfloor_std": 0.0058,
+      "spearman": 0.7465,
+      "mae": 0.4433,
+      "seeds": {
+        "42": 0.4395,
+        "123": 0.4285,
+        "7": 0.4371
+      }
+    }
+  },
+  "run": "2026-09-13 23:19:56"
+}
