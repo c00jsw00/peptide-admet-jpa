@@ -174,13 +174,13 @@ The openclaw-peptide-admet platform provides: (i) leakage-controlled unique-SMIL
 We present the first systematic, leakage-controlled, censored-floor-aware benchmark of ten permeability-improvement routes on 7,283 PAMPA and 7,429 Caco-2 cyclic peptides. All eight classical PAMPA routes — descriptor expansion, rank-Gaussian target transformation, LightGBM ensembling, Tobit censored regression, soft-label blending, ChemBERTa frozen embeddings, PeptiVerse raw-data cross-validation, and label averaging — failed to exceed the MLP baseline (R² = 0.464). Foundation models broke the barrier on both endpoints: on PAMPA, TabPFN v2 (in-context learning) reached R² = 0.496 ± 0.002 and KPGT fine-tuning (end-to-end gradient) reached R² = 0.513 ± 0.005, the best of all routes and 95 % of the theoretical censored ceiling (0.539); on Caco-2, the ranking reversed, with TabPFN v2 leading at R² = 0.442 ± 0.003 (baseline 0.393, non-floor 0.609) and KPGT at 0.411 ± 0.006 — evidence that foundation-model gains generalise across permeability endpoints but that no single model dominates. On the shared molecules, KPGT fine-tuning (ρ = 0.811) exceeded the PeptiVerse frozen embeddings (ρ = 0.671) by +0.14 in Spearman correlation, demonstrating that task-specific fine-tuning is necessary. The gains of the gradient-tuned model, however, concentrate in the censored region on both endpoints at the cost of non-floor accuracy, whereas TabPFN's gains are floor-confined on PAMPA but extend to measured compounds on Caco-2. **The censored ceilings — 0.539 (PAMPA) and 0.570 (Caco-2), not model capacity, are the true bottlenecks.** Advancing peptide permeability prediction requires uncensored re-measurement of floor compounds — an experimental, not algorithmic, task.
 
 ## References
-[1] Hornsby M, Lee J, Steele J, Tuekpe R, Lim A. Therapeutic peptides and proteins: Status and developments in drug delivery. J Control Release. 2026;394:114895. doi:10.1016/j.jconrel.2026.114895
+[1] Hornsby BD, Lee CH, Steele CA, Tuekpe JK, Lim CS. Therapeutic peptides and proteins: Status and developments in drug delivery. J Control Release. 2026;394:114895. doi:10.1016/j.jconrel.2026.114895
 
-[2] Tan X, Liu Y, Zhou Y, Fang Q, Ouyang Y. pepADMET: A Novel Computational Platform For Systematic ADMET Evaluation of Peptides. J Chem Inf Model. 2026;66(2):936-946. doi:10.1021/acs.jcim.5c02518
+[2] Tan X, Liu Q, Zhou M, Fang Y, Ouyang D, Zeng W, Dong J. pepADMET: A Novel Computational Platform For Systematic ADMET Evaluation of Peptides. J Chem Inf Model. 2026;66(2):936-946. doi:10.1021/acs.jcim.5c02518
 
-[3] Zhang Y, Tang Y, Chen Y, Mahood T, Vincoff A, Chatterjee S. PeptiVerse: A unified platform for peptide property prediction. Nat Commun. 2026;17:6819. doi:10.1038/s41467-026-74167-w
+[3] Zhang Y, Tang S, Chen T, Mahood E, Vincoff S, Chatterjee P. PeptiVerse: A unified platform for therapeutic peptide property prediction. Nat Commun. 2026;17:6819. doi:10.1038/s41467-026-74167-w
 
-[4] Hollmann N, et al. TabPFN: A Transformer That Solves Small Tabular Classification Problems in a Second. Nature. 2024;636:363-370. doi:10.1038/s41586-024-08328-6
+[4] Hollmann N, Muller S, Purucker L, Krishnakumar A, Korfer M, Hoo SB, Schirrmeister RT, Hutter F. Accurate predictions on small data with a tabular foundation model. Nature. 2025;637(8045). doi:10.1038/s41586-024-08328-6
 
 [5] Li H, Zhao D, Zeng J. KPGT: Knowledge-Guided Pre-training of Graph Transformer for Molecular Property Prediction. arXiv preprint arXiv:2206.03364. 2022. doi:10.48550/arXiv.2206.03364
 
@@ -192,9 +192,9 @@ We present the first systematic, leakage-controlled, censored-floor-aware benchm
 
 [9] Ke G, et al. LightGBM: A Highly Efficient Gradient Boosting Decision Tree. Adv Neural Inf Process Syst. 2017;30:3146-3154.
 
-[10] Ahmad W, Simon E, Chithrananda S, Grand G, Ramsundar B. ChemBERTa: Self-Supervised Learning for Chemical Language Models. arXiv preprint arXiv:2010.09885. 2020. doi:10.48550/arXiv.2010.09885
+[10] Ahmad W, Simon E, Chithrananda S, Grand G, Ramsundar B. ChemBERTa: Large-Scale Self-Supervised Pretraining for Molecular Property Prediction. arXiv preprint arXiv:2010.09885. 2020. doi:10.48550/arXiv.2010.09885
 
-[11] Wang M, Zheng D, Ye Z, Gan Q, Li M, Zhou X, Ma C, Hu Z, Yang Q, Zhao Y, Li J, Smola A, Zhang Z. Deep Graph Library: Towards Efficient and Scalable Deep Learning on Graphs. arXiv preprint arXiv:1909.01315. 2019. doi:10.48550/arXiv.1909.01315
+[11] Wang M, Zheng D, Ye Z, Gan Q, Li M, Zhou X, Ma C, Hu Z, Yang Q, Zhao Y, Li J, Smola A, Zhang Z. Deep Graph Library: A Graph-Centric, Highly-Performant Package for Graph Neural Networks. arXiv preprint arXiv:1909.01315. 2019. doi:10.48550/arXiv.1909.01315
 
 [12] Li J, Yanagisawa K, Sugita M, Fujie T, Ohue M, Akiyama Y. CycPeptMPDB: A Comprehensive Database of Membrane Permeability of Cyclic Peptides. J Chem Inf Model. 2023;63(7):2240-2250. doi:10.1021/acs.jcim.2c01573
 
